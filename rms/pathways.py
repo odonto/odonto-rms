@@ -16,9 +16,10 @@ class ReferralPathway(PagePathway):
 
 
     steps = (
-        Step(
-            model=models.Demographics, display_name="What are the personal details of the patient?", icon=None
-        ),
+        models.Demographics,
+        models.ContactDetails,
+        models.CarerDetails,
+        models.ReferralReason,
         models.Disability,
         models.MedicalIssues,
         models.MentalHealthIssues,
