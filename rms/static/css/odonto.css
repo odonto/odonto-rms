@@ -78,3 +78,9 @@ h2 {
 .btn-choices button.active {
   background-color:  rgb(72, 124, 188)
 }
+
+
+.odonto-list {
+    margin-top: 90px;
+    padding: 20px;
+}
