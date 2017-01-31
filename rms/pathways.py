@@ -30,7 +30,7 @@ class ReferralPathway(PagePathway):
         return patient
 
     def redirect_url(self, patient):
-        return '/#/list/check_and_find'
+        return '/#/list/new_referrals'
 
 
 class CheckAndFind(PagePathway):
