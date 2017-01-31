@@ -55,5 +55,7 @@ class MentalHealthIssues(models.EpisodeSubrecord):
 
 
 class ReferralDetails(models.EpisodeSubrecord):
+    _is_singleton = True
+
     when = fields.DateTimeField(blank=True, null=True)
     who = fields.ForeignKey(User, blank=True, null=True)

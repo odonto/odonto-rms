@@ -36,17 +36,30 @@ class AllReferrals(core.patient_lists.PatientList):
 
 
 class CheckAndFindList(core.patient_lists.PatientList):
-    display_name = 'Check and Find List'
-    slug = "check_and_find"
+    display_name = 'New Referrals'
+    slug = "new_referrals"
+    template_name = 'referral_table_list.html'
 
     schema = [
-        models.Demographics,
-        models.Diagnosis,
-        models.Treatment,
         Column(
-            name="check_and_find",
-            title="",
-            template_path="columns/check_and_find.html",
+            name="date",
+            title="Date of Referral",
+            template_path="columns/date_of_referral.html",
+        ),
+        Column(
+            name="referrer",
+            title="Referred from",
+            template_path="columns/referrer.html",
+        ),
+        Column(
+            name="name",
+            title="Patient",
+            template_path="columns/name.html",
+        ),
+        Column(
+            name="status",
+            title="Status",
+            template_path="columns/status.html",
         )
     ]
 
