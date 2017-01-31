@@ -68,6 +68,7 @@ class CarerDetails(models.PatientSubrecord):
 
 class ReferralReason(models.EpisodeSubrecord):
     _title = "Referral Reason"
+    _singleton = True
 
     dental_treatment_needed = fields.TextField()
     dental_treatment_already_provided = fields.TextField()
