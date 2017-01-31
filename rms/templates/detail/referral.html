@@ -1,0 +1,33 @@
+{% load panels %}
+<div class="nav-bar-odonto-container">
+  <h2 class="nav-bar-odonto-title">
+    New Referral
+  </h2>
+</div>
+
+<div class="col-md-12 bg-danger">
+  <h1 class="text-center">URGENT !!!</h1>
+</div>
+
+<div class="col-md-12">
+  <h2>Treatment</h2>
+</div>
+
+<div class="col-md-12">
+  <h2>Why SCD?</h2>
+  {% record_panel models.MedicalIssues %}
+  {% record_panel models.Disability %}
+  {% record_panel models.MentalHealthIssues %}
+</div>
+
+<div class="col-md-12">
+  <h2>Refer Where</h2>
+  <center>
+    <button
+      ng-hide="profile.readonly"
+      ng-click=""
+      class="btn btn-primary btn-lg">
+      Complete
+    </button>
+  </center>
+</div>

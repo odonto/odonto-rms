@@ -1,0 +1,37 @@
+{% load panels %}
+{% load forms %}
+<div class="container-fluid odonto-detail {% block container_classes %}{% endblock %}">
+
+    <div class="panel-body {% block panel_body_classes %}{% endblock %}">
+      <div class="row">
+        {% block content %}
+
+        <div class="col-md-3"> <!-- Episode Switcher -->
+            {% include 'partials/_demographics_panel.html' %}
+        </div> <!-- End episode switcher -->
+
+        <div class="col-md-9">
+          <div class="col-md-12">
+            {% for episode_category in episode_categories %}
+            {% if episode_category.detail_template %}
+            <div class="row" ng-show="view == null && episode.category_name == '{{ episode_category.display_name }}'">
+              {% include episode_category.detail_template %}
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% for detail in detail_views %}
+            <div class="row" ng-show="view == '{{ detail.get_slug }}'">
+              {% include detail.template %}
+            </div>
+            {% endfor %}
+            {% block viewtemplates %}{% endblock %}
+          </div>
+        </div>
+
+      </div> <!-- Ends Main Panel -->
+
+      {% endblock content %}
+
+    </div>
+
+</div>     <!-- Container -->

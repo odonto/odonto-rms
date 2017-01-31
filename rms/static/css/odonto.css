@@ -52,10 +52,30 @@ h2 {
     background-color: white;
 }
 .content-offset {
-    margin-top: 200px
+    margin-top: 100px
 }
 .pathway-offset {
     margin-top: 80px;
+}
+
+.nav-bar-odonto-container{
+  position: fixed;
+  margin-top: -106px;
+  z-index: 10000;
+  left: 50%;
+}
+.nav-bar-odonto-title{
+  margin-left: -50%;
+  font-size: 24px;
+  font-weight: 300;
+  color: white;
+}
+
+.odonto-small-title{
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .loading {
@@ -87,4 +107,9 @@ h2 {
 .odonto-list {
     margin-top: 90px;
     padding: 20px;
+}
+
+.odonto-detail {
+    margin-top: 100px;
+/*     background-color: firebrick */
 }

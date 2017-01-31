@@ -3,14 +3,18 @@ Pathways for the Odonto RMS
 """
 import datetime
 
-from pathway.pathways import PagePathway
 
+from pathway.pathways import PagePathway, Step
 from rms import models
 
 
 class ReferralPathway(PagePathway):
     display_name = "Referral"
     slug = "referral_form"
+    step_wrapper_template_url = "/templates/pathways/step_wrappers/odonto_page_wrapper.html"
+    template_url = "/templates/pathways/odonto_pathway_base.html"
+
+
     steps = (
         models.Demographics,
         models.ContactDetails,
@@ -33,7 +37,7 @@ class ReferralPathway(PagePathway):
         return patient
 
     def redirect_url(self, patient):
-        return '/#/list/check_and_find'
+        return '/#/list/new_referrals'
 
 
 class CheckAndFind(PagePathway):
