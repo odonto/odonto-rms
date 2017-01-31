@@ -13,7 +13,7 @@
              bs-typeahead
              bs-options="i for i in {{ lookuplist }}"
            {% endif %}
-           name="{{ modelname }}"
+           name="[[ {{ element_name }} ]]"
            {% if required %}
            required
            {% endif %}
@@ -36,16 +36,16 @@
            {% endif %}
            placeholder="{{label}}"
            />
-    {% if maxlength %}
-        <span class="help-block" ng-show="form.{{ modelname }}.$invalid">
-          Maximum length is {{ maxlength }}
-        </span>
-    {% endif %}
-    {% if required %}
-      <span ng-show="{{ formname }}.{{ modelname }}.$dirty && {{ formname }}.{{ modelname }}.$error.required">
-        {{ required }}
-      </span>
-    {% endif %}
+           {% if maxlength %}
+               <span class="help-block" ng-show="({{ formname }}.$submitted || {{ formname }}[{{ element_name }}].$invalid) && {{ formname }}[{{ element_name }}].$error.maxlength">
+                 Maximum length is {{ maxlength }}
+               </span>
+           {% endif %}
+           {% if required %}
+             <span class="help-block" ng-show="({{ formname }}[{{ element_name }}].$dirty || {{ formname }}.$submitted) && {{ formname }}[{{ element_name }}].$error.required">
+               {{ label }} is required
+             </span>
+           {% endif %}
   </div>
   {% if unit %}
   <label class="control-label"><small>({{ unit }})</small></label>
