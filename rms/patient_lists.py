@@ -31,11 +31,11 @@ class AllReferrals(core.patient_lists.PatientList):
         )
     ]
 
-    def get_queryset(self):
+    def get_queryset(self, **kw):
         return Episode.objects.all()
 
 
-class CheckAndFindList(core.patient_lists.PatientList):
+class NewReferralsList(core.patient_lists.PatientList):
     display_name = 'New Referrals'
     slug = "new_referrals"
     template_name = 'referral_table_list.html'
@@ -57,13 +57,13 @@ class CheckAndFindList(core.patient_lists.PatientList):
             template_path="columns/name.html",
         ),
         Column(
-            name="status",
+            name="urgency",
             title="Urgency",
-            template_path="columns/status.html",
+            template_path="columns/urgency.html",
         )
     ]
 
-    def get_queryset(self):
+    def get_queryset(self, **k):
         return Episode.objects.filter(
             allocatedclinic__location_fk__isnull=True,
         )
@@ -83,7 +83,7 @@ class ApprovalList(core.patient_lists.PatientList):
         )
     ]
 
-    def get_queryset(self):
+    def get_queryset(self, **kw):
         return Episode.objects.filter(
             allocatedclinic__confirmed=False,
             allocatedclinic__letter_sent=False,
@@ -93,6 +93,41 @@ class ApprovalList(core.patient_lists.PatientList):
     def save(self, data, user):
         models.ReferralDetails.objects.create(when=datetime.now(), who=user)
         return super(ApprovalList, self).save(data, user)
+
+
+class MyReferrals(core.patient_lists.PatientList):
+    display_name = "My Referrals"
+    slug = 'my_referrals'
+    template_name = 'referral_table_list.html'
+
+    schema = [
+        Column(
+            name="date",
+            title="Date of Referral",
+            template_path="columns/date_of_referral.html",
+        ),
+        Column(
+            name="name",
+            title="Patient",
+            template_path="columns/name.html",
+        ),
+        Column(
+            name="urgency",
+            title="Urgency",
+            template_path="columns/urgency.html",
+        ),
+        Column(
+            name="status",
+            title="Status",
+            template_path="columns/status.html",
+        )
+
+    ]
+
+    def get_queryset(self, user=None):
+        return Episode.objects.filter(
+            referraldetails__who=user
+        )
 
 
 class BeckyClinic(core.patient_lists.PatientList):
@@ -106,7 +141,7 @@ class BeckyClinic(core.patient_lists.PatientList):
         models.ReferralDetails
     ]
 
-    def get_queryset(self):
+    def get_queryset(self, user=None):
         return Episode.objects.filter(
             allocatedclinic__confirmed=True,
         )
