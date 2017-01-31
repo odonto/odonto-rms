@@ -71,7 +71,7 @@ class CarerDetails(models.PatientSubrecord):
 
 class ReferralReason(models.EpisodeSubrecord):
     _title = "Referral Reason"
-    _singleton = True
+    _is_singleton = True
 
     URGENT = "Urgent"
     ROUTINE = "Routine"
@@ -150,6 +150,7 @@ class MentalHealthIssues(models.EpisodeSubrecord):
 class ReferralDetails(models.EpisodeSubrecord):
     _is_singleton = True
     _title = "Referral Details"
+    _editable =False
 
     when = fields.DateTimeField(blank=True, null=True)
     who = fields.ForeignKey(User, blank=True, null=True)
