@@ -1,12 +1,87 @@
 {
+  "line_removal_reason": [], 
+  "micro_test_single_test_pos_neg_equiv": [], 
+  "micro_test_stool_parasitology_pcr": [], 
+  "speciality": [], 
+  "micro_test_respiratory_virus_pcr": [], 
+  "micro_test_c_difficile": [], 
+  "micro_test_parasitaemia": [], 
+  "micro_test_ebv_serology": [], 
+  "micro_test_viral_load": [], 
+  "drugfreq": [], 
+  "line_type": [], 
+  "micro_test_hiv": [], 
+  "duration": [], 
+  "relationshiptopatient": [
+    {
+      "synonyms": [
+        "Son", 
+        "Daughter"
+      ], 
+      "name": "Child"
+    }, 
+    {
+      "synonyms": [
+        "Mother", 
+        "Father"
+      ], 
+      "name": "Parent"
+    }, 
+    {
+      "synonyms": [
+        "Brother", 
+        "Sister"
+      ], 
+      "name": "Sibling"
+    }
+  ], 
+  "micro_test_csf_pcr": [], 
+  "ethnicity": [], 
+  "line_site": [], 
+  "maritalstatus": [], 
+  "micro_test_single_igg_test": [], 
+  "line_complication": [], 
+  "title": [], 
+  "hospital": [], 
+  "destination": [], 
+  "travel_reason": [], 
+  "micro_test_stool_pcr": [], 
+  "micro_test_syphilis_serology": [], 
+  "drugroute": [], 
+  "symptom": [], 
+  "clinical_advice_reason_for_interaction": [], 
+  "antimicrobial": [], 
+  "micro_test_single_test_pos_neg": [], 
+  "micro_test_other": [], 
+  "micro_test_leishmaniasis_pcr": [], 
+  "micro_test_serology": [], 
+  "referralorganisation": [], 
+  "micro_test_swab_pcr": [], 
+  "cliniclocation": [
+    {
+      "synonyms": [], 
+      "name": "Becky's Dentistry"
+    }
+  ], 
+  "ward": [], 
+  "antimicrobial_route": [], 
+  "condition": [], 
+  "microbiology_organism": [], 
+  "antimicrobial_frequency": [], 
   "gender": [
     {
-      "synonyms": [],
+      "synonyms": [], 
       "name": "Female"
-    },
+    }, 
     {
-      "synonyms": [],
+      "synonyms": [], 
       "name": "Male"
     }
-  ]
+  ], 
+  "drug": [], 
+  "antimicrobial_adverse_event": [], 
+  "referraltype": [], 
+  "micro_test_hepititis_b_serology": [], 
+  "patientconsultationreasonforinteraction": [], 
+  "micro_test_mcs": []
 }
