@@ -1,14 +1,16 @@
 <div class="row" ng-show="item.has_mental_health_issues">
-  <div class="col-md-3">
+  <div class="col-md-6">
     <strong>Diagnois</strong>
   </div>
-  <div class="col-md-9">
+  <div class="col-md-6">
     [[ item.diagnosis ]]
   </div>
-  <div class="col-md-3" ng-show="item.details_of_dental_phobia">
+</div>
+<div class="row">
+  <div class="col-md-6" ng-show="item.details_of_dental_phobia">
     <strong>Dental Phobia</strong>
   </div>
-  <div class="col-md-9">
+  <div class="col-md-6">
     [[ item.details_of_dental_phobia ]]
   </div>
 </div>

@@ -1,12 +1,24 @@
-<span ng-show="item.dental_treatment_needed">
+<div class="row" >
+  <div class="col-md-6">
+    <strong>Treatment Needed</strong>
+  </div>
+  <div class="col-md-6">
     [[ item.dental_treatment_needed ]]
-   <br />
-</span>
-<span ng-show="item.dental_treatment_already_provided">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6" ng-show="item.dental_treatment_already_provided">
+    <strong>Treatmet Provided</strong>
+  </div>
+  <div class="col-md-6">
     [[ item.dental_treatment_already_provided ]]
-   <br />
-</span>
-<span ng-show="item.difficulties_encountered">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6" ng-show="item.difficulties_encountered">
+    <strong>Difficulties Encountered</strong>
+  </div>
+  <div class="col-md-6">
     [[ item.difficulties_encountered ]]
-   <br />
-</span>
+  </div>
+</div>
