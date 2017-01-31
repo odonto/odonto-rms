@@ -14,3 +14,4 @@ class Application(application.OpalApplication):
     styles = [
         "css/odonto.css"
     ]
+    default_episode_category = 'Referral'
