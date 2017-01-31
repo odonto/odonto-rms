@@ -3,5 +3,7 @@
 <span ng-show="editing.mental_health_issues.has_mental_health_issues">
   {% textarea  field="MentalHealthIssues.diagnosis"  %}
   {% checkbox  field="MentalHealthIssues.extreme_dental_phobia"  %}
+  <span ng-show="editing.mental_health_issues.extreme_dental_phobia">
   {% textarea  field="MentalHealthIssues.details_of_dental_phobia"  %}
+  </span>
 </span>

@@ -23,7 +23,7 @@ class ContactDetails(models.PatientSubrecord):
     _is_singleton = True
     _advanced_searchable = False
     _icon = 'fa fa-phone'
-
+    address = fields.TextField(blank=True, null=True)
     address_line1 = fields.CharField(
         "Address line 1", max_length=45, blank=True, null=True
     )
@@ -51,7 +51,10 @@ class RelationshipToPatient(lookuplists.LookupList):
 
 
 class CarerDetails(models.PatientSubrecord):
+    _title = "Carer Details"
+
     relationship_to_patient = ForeignKeyOrFreeText(RelationshipToPatient)
+    address = fields.TextField(blank=True, null=True)
     surname = fields.CharField(max_length=255, blank=True)
     first_name = fields.CharField(max_length=255, blank=True)
     address_line1 = fields.CharField(
@@ -88,8 +91,8 @@ class AllocatedClinic(models.EpisodeSubrecord):
 class Disability(models.EpisodeSubrecord):
     _is_singleton = True
     UNIMPAIRED = "Unimpaired"
-    PARTIALLY_IMPARED = "partially impaired"
-    SEVERLY_IMPARED = "severly impaired"
+    PARTIALLY_IMPARED = "Partially impaired"
+    SEVERLY_IMPARED = "Severly impaired"
     COMMUNICATE_CHOICES = (
         (UNIMPAIRED, UNIMPAIRED),
         (PARTIALLY_IMPARED, PARTIALLY_IMPARED),
@@ -102,11 +105,14 @@ class Disability(models.EpisodeSubrecord):
         choices=COMMUNICATE_CHOICES,
         null=True,
         blank=True,
-        default=UNIMPAIRED
+        default=UNIMPAIRED,
+        verbose_name="Unable to communicate"
     )
-    able_to_leave_home = fields.BooleanField(default=False)
-    able_to_stand_for_transfer = fields.BooleanField(default=False)
-    has_capacity_to_consent = fields.BooleanField(default=False)
+    able_to_leave_home = fields.BooleanField(default=False,
+                                             verbose_name="Unable to leave home")
+    able_to_stand_for_transfer = fields.BooleanField(default=False,
+                                                     verbose_name="Unable to stand for transfer")
+    has_capacity_to_consent = fields.BooleanField(default=False, verbose_name="Doubts over capacity to consent")
 
 
 class MedicalIssues(models.EpisodeSubrecord):

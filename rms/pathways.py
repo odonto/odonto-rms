@@ -17,8 +17,10 @@ class ReferralPathway(PagePathway):
 
 
     steps = (
-        models.Demographics,
-        models.ContactDetails,
+        Step(
+            display_name='Patient Details',
+            template_url="/templates/pathways/steps/patient_detail.html"
+        ),
         models.CarerDetails,
         models.ReferralReason,
         models.Disability,
