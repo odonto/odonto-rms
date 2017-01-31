@@ -61,7 +61,7 @@ h2 {
 .nav-bar-odonto-container{
   position: fixed;
   margin-top: -106px;
-  z-index: 10000;
+  z-index: 1040;
   left: 50%;
 }
 .nav-bar-odonto-title{
