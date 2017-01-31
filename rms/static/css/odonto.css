@@ -1,0 +1,80 @@
+/* Odonto wireframe stylings */
+body {
+    background-color: white;
+}
+
+h2 {
+    color: rgb(72, 124, 188);
+}
+
+.form-control {
+    font-size: 18px;
+    height: 48px;
+}
+
+.btn-lg {
+    padding: 6px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 2px;
+}
+
+.btn-primary {
+    background-color: rgb(102, 174, 40);
+}
+.btn-secondary, .btn-secondary:hover, .btn-secondary:focus{
+    background-color: rgb(216, 143, 33);
+}
+.navbar-default, .top-navbar {
+    border-bottom: none;
+}
+
+.top-navbar {
+    height:100px;
+    background-color: rgb(72, 124, 188)
+}
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+.navbar-brand img {
+    height: 100px;
+    margin-top: -15px;
+}
+#main-navbar {
+    margin-top: 20px;
+}
+.ngProgressLiteBar {
+    top: 100px;
+    background-color: white;
+}
+.content-offset {
+    margin-top: 200px
+}
+.pathway-offset {
+    margin-top: 80px;
+}
+
+.loading {
+  background-color: white;
+  height: 100%;
+  position: fixed;
+  width: 1100%;
+  z-index: 100;
+  padding-left: 0px;
+  margin-left: -20px;
+}
+.pathway-process-steps-padding {
+    margin-top: 60px;
+}
+.btn-choices button {
+  width: 240px;
+  height: 200px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  background-color: rgb(212,212,212);
+  color: white;
+}
+
+.btn-choices button.active {
+  background-color:  rgb(72, 124, 188)
+}
