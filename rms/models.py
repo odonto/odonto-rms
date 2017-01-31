@@ -29,7 +29,7 @@ class AllocatedClinic(models.EpisodeSubrecord):
     letter_sent = fields.BooleanField(default=False)
 
 
-class Disibility(models.EpisodeSubrecord):
+class Disability(models.EpisodeSubrecord):
     _is_singleton = True
     has_disability = fields.BooleanField(default=False)
     able_to_communicate = fields.BooleanField(default=False)
@@ -40,6 +40,7 @@ class Disibility(models.EpisodeSubrecord):
 
 class MedicalIssues(models.EpisodeSubrecord):
     _is_singleton = True
+    _title = "Medical Issues"
     has_medical_issues = fields.BooleanField(default=False)
     main_medical_conditions = fields.TextField(blank=True)
     medications_taken = fields.TextField(blank=True)
