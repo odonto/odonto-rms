@@ -13,6 +13,9 @@ class ReferralPathway(PagePathway):
     slug = "referral_form"
     steps = (
         models.Demographics,
+        models.ContactDetails,
+        models.CarerDetails,
+        models.ReferralReason,
         models.Disability,
         models.MedicalIssues,
         models.MentalHealthIssues,
