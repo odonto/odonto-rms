@@ -116,6 +116,8 @@ class MedicalIssues(models.EpisodeSubrecord):
 
 class MentalHealthIssues(models.EpisodeSubrecord):
     _is_singleton = True
+    _title = "Mental Health Issues"
+
     has_mental_health_issues = fields.BooleanField(default=False)
     diagnosis = fields.TextField(blank=True)
     extreme_dental_phobia = fields.BooleanField(default=False)

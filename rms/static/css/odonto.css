@@ -113,3 +113,15 @@ h2 {
     margin-top: 100px;
 /*     background-color: firebrick */
 }
+.odonto-detail h2 {
+    padding-bottom: 20px;
+}
+
+.odonto-detail .panel-default {
+    border: none;
+}
+
+.panel-primary .panel-default .panel-heading,
+.panel-default .panel-heading {
+    border-bottom: 3px solid rgb(72, 124, 188);
+}
