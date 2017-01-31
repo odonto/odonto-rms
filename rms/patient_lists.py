@@ -58,7 +58,7 @@ class CheckAndFindList(core.patient_lists.PatientList):
         ),
         Column(
             name="status",
-            title="Status",
+            title="Urgency",
             template_path="columns/status.html",
         )
     ]

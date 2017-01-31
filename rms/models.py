@@ -73,6 +73,20 @@ class ReferralReason(models.EpisodeSubrecord):
     _title = "Referral Reason"
     _singleton = True
 
+    URGENT = "Urgent"
+    ROUTINE = "Routine"
+    URGENCY_CHOICES = (
+        (ROUTINE, ROUTINE),
+        (URGENT, URGENT),
+    )
+
+    urgency = fields.CharField(
+        max_length=256,
+        choices=URGENCY_CHOICES,
+        null=True,
+        blank=True,
+        default=ROUTINE
+    )
     dental_treatment_needed = fields.TextField()
     dental_treatment_already_provided = fields.TextField()
     difficulties_encountered = fields.TextField()
@@ -135,6 +149,15 @@ class MentalHealthIssues(models.EpisodeSubrecord):
 
 class ReferralDetails(models.EpisodeSubrecord):
     _is_singleton = True
+    _title = "Referral Details"
 
     when = fields.DateTimeField(blank=True, null=True)
     who = fields.ForeignKey(User, blank=True, null=True)
+
+    def to_dict(self, user):
+        d = super(ReferralDetails, self).to_dict(user)
+
+        d['username'] = self.who.username
+        d['email'] = self.who.email
+        d['name'] = "{0} {1}".format(self.who.first_name, self.who.last_name)
+        return d

@@ -130,3 +130,12 @@ h2 {
 .panel.panel-primary .panel-heading {
     background-color: rgb(72, 124, 188);
 }
+
+td div.urgent {
+    color: firebrick;
+    font-weight: bold;
+}
+.bg-urgent {
+    color: white;
+    background-color: firebrick;
+}
