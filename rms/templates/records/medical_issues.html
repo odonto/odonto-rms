@@ -1,12 +1,14 @@
-<span ng-show="item.has_medical_issues">
-     Has Medical Issues
-   <br />
-</span>
-<span ng-show="item.main_medical_conditions">
+<div class="row" ng-show="item.has_medical_issues">
+  <div class="col-md-3">
+    <strong>Medical Conditions</strong>
+  </div>
+  <div class="col-md-9">
     [[ item.main_medical_conditions ]]
-   <br />
-</span>
-<span ng-show="item.medications_taken">
+  </div>
+  <div class="col-md-3">
+    <strong>Medications Taken</strong>
+  </div>
+  <div class="col-md-9">
     [[ item.medications_taken ]]
-   <br />
-</span>
+  </div>
+</div>

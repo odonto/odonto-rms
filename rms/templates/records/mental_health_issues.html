@@ -1,16 +1,14 @@
-<span ng-show="item.has_mental_health_issues">
-     Has Mental Health Issues
-   <br />
-</span>
-<span ng-show="item.diagnosis">
+<div class="row" ng-show="item.has_mental_health_issues">
+  <div class="col-md-3">
+    <strong>Diagnois</strong>
+  </div>
+  <div class="col-md-9">
     [[ item.diagnosis ]]
-   <br />
-</span>
-<span ng-show="item.extreme_dental_phobia">
-     Extreme Dental Phobia
-   <br />
-</span>
-<span ng-show="item.details_of_dental_phobia">
+  </div>
+  <div class="col-md-3" ng-show="item.details_of_dental_phobia">
+    <strong>Dental Phobia</strong>
+  </div>
+  <div class="col-md-9">
     [[ item.details_of_dental_phobia ]]
-   <br />
-</span>
+  </div>
+</div>
