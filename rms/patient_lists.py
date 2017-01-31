@@ -36,8 +36,8 @@ class AllReferrals(core.patient_lists.PatientList):
 
 
 class CheckAndFindList(core.patient_lists.PatientList):
-    display_name = 'Check and Find List'
-    slug = "check_and_find"
+    display_name = 'New Referrals'
+    slug = "new_referrals"
     template_name = 'referral_table_list.html'
 
     schema = [
