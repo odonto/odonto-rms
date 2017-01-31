@@ -1,0 +1,3 @@
+recursive-include rms/static *
+recursive-include rms/assets *
+recursive-include rms/templates *
