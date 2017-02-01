@@ -1,8 +1,8 @@
-<span ng-show="item.confirmed">
-     Confirmed
-   <br />
-</span>
-<span ng-show="item.location">
-    [[ item.location ]]
-   <br />
+<span ng-show="item.location_id">
+  <div ng-show="clinicLocation.id === item.location_id" ng-repeat="clinicLocation in metadata.clinic_location">
+    [[ clinicLocation.name ]] (Tier [[ clinicLocation.tier ]])<span ng-show="item.confirmed"> - <strong>Confirmed</strong></span><br />
+    <span ng-show="clinicLocation[field]" ng-repeat="field in ['address_line1', 'address_line2', 'post_code', 'tel']">
+      [[ clinicLocation[field] ]]<br />
+    </span>
+  </div>
 </span>
