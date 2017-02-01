@@ -202,3 +202,15 @@ class ReferralDetails(models.EpisodeSubrecord):
         d['email'] = self.who.email
         d['name'] = "{0} {1}".format(self.who.first_name, self.who.last_name)
         return d
+
+
+class Xray(models.EpisodeSubrecord):
+    name = fields.CharField(max_length=256, blank=True, null=True)
+    img = fields.FileField(blank=True, null=True)
+    notes = fields.TextField(null=True, blank=True)
+
+    @classmethod
+    def _get_fieldnames_to_serialize(cls):
+        fields = set(super(Xray, cls)._get_fieldnames_to_serialize())
+        fields.remove("img")
+        return fields

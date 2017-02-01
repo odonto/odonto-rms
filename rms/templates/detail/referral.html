@@ -1,5 +1,6 @@
 {% load panels %}
 {% load forms %}
+{% load files %}
 <div class="col-md-8 odonto-referral-detail">
   <div class="nav-bar-odonto-container">
     <h2 class="nav-bar-odonto-title">
@@ -15,6 +16,7 @@
   <div class="col-md-12">
     <!-- <h2>Treatment</h2> -->
     {% record_panel models.ReferralReason %}
+    {% record_panel models.Xray %}
   </div>
 
   <div class="col-md-12">
