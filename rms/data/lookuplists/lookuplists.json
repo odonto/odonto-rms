@@ -41,7 +41,12 @@
   "maritalstatus": [], 
   "micro_test_single_igg_test": [], 
   "line_complication": [], 
-  "title": [], 
+  "title": [
+    {
+      "synonyms": [], 
+      "name": "Dr"
+    }
+  ], 
   "hospital": [], 
   "destination": [], 
   "travel_reason": [], 
@@ -57,12 +62,6 @@
   "micro_test_serology": [], 
   "referralorganisation": [], 
   "micro_test_swab_pcr": [], 
-  "cliniclocation": [
-    {
-      "synonyms": [], 
-      "name": "Becky's Dentistry"
-    }
-  ], 
   "ward": [], 
   "antimicrobial_route": [], 
   "condition": [], 

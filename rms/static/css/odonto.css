@@ -18,6 +18,10 @@ h2 {
     border-radius: 2px;
 }
 
+.btn-default small{
+  color: #DDD;
+}
+
 .grey{
   color: #999;
 }
