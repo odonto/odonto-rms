@@ -1,20 +1,18 @@
 
 {% load forms %}
 <div class="form-group" {% if visibility %} {{ visibility|safe }} {% endif %} >
+  <label class="control-label col-sm-12">{{ label }}</label>
   <span ng-class="{ 'errored-state': {{ formname }}[{{ element_name }}].$dirty && !{{ formname }}[{{ element_name }}].$valid }">
   <div class="col-sm-12" ng-class='{"has-error": {{ formname }}.$submitted && {{ formname }}[{{ element_name }}].$error.required}'>
     {% if multiple %}
       <ui-select {% if tagging %}tagging {% endif %}multiple {% if autofocus %}autofocus {% endif %} {% if change %} ng-change="{{ change }}" {% endif %}{% if disabled %}ng-disabled="{{ disabled }}" {% endif %}name="[[ {{ element_name }} ]]" {% if required %}required{% endif %} ng-model="{{ model }}" theme="bootstrap" {% for d in directives %}{{ d }} {% endfor %} style="min-width: 300px;">
-        <ui-select-match {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}>{% if multiple %}[[ $item ]]{% else %}[[ $select.selected ]]{% endif %}</ui-select-match>
+        <ui-select-match >{% if multiple %}[[ $item ]]{% else %}[[ $select.selected ]]{% endif %}</ui-select-match>
         <ui-select-choices repeat="i in {{ lookuplist }} | filter:$select.search {% if not multiple %}track by $index{% endif %}">
           <div ng-bind-html="i | highlight: $select.search"></div>
         </ui-select-choices>
       </ui-select>
       {% else %}
       <select ng-class="{grey: !{{ model }}}" {% if autofocus %}autofocus {% endif %}name="[[ {{ element_name }} ]]" {% if required %}required{% endif %} class="form-control" ng-model="{{ model }}" {% if change %} ng-change="{{ change }}" {% endif %} {% if disabled %}ng-disabled="{{ disabled }}" {% endif %} {% for d in directives %}{{ d }} {% endfor %}>
-        {% if label %}
-          <option value="" disabled selected hidden="">{{ label }}</option>
-        {% endif %}
         <option ng-repeat="i in {{ lookuplist }} track by $index">[[ i ]]</option>
         {% if other %}<option>Other</option>{% endif %}
       </select>
