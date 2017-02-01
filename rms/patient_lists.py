@@ -65,7 +65,7 @@ class NewReferralsList(core.patient_lists.PatientList):
 
     def get_queryset(self, **k):
         return Episode.objects.filter(
-            allocatedclinic__location_fk__isnull=True,
+            allocatedclinic__location__isnull=True,
         )
 
 

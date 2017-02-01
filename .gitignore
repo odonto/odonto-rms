@@ -12,3 +12,4 @@
 .coverage
 htmlcov
 libpeerconnection.log
+opal.sqlite.bak
