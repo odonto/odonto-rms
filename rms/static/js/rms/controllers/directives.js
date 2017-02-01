@@ -3,15 +3,24 @@ var directives = angular.module('opal.directives', []);
 directives.directive('lineChart', function($http){
     return function(scope, element, attrs){
         var el = element
+        if(attrs.lineChart == 'clinic'){
+            var columns = [
+                    ['Appointments Booked',  0,  70, 45, 59, 48, 64, 0,   0],
+                    ['Average Appointments', 52, 52, 52, 52, 52, 52, 52, 52],
+                    ['Referrals Pending',    0,   0,   0,    0,   0,   0,  23,  0],
+                ]
+        }else{
+            var columns = [
+                    ['Appointments Booked', 0,   140, 120, 155, 135, 150, 0,   0],
+                    ['Average Appointments', 140, 140, 140, 140, 140, 140, 140, 140],
+                    ['Referrals Pending', 0,   0,   0,    0,   0,   0,  230,  0],
+                ]
+        }
 
         var chart = c3.generate({
             bindto: el[0],
             data: {
-                columns: [
-                    ['Appointments Booked', 0,   140, 120, 155, 135, 150, 0,   0],
-                    ['Average Appointments', 140, 140, 140, 140, 140, 140, 140, 140],
-                    ['Referrals Pending', 0,   0,   0,    0,   0,   0,  230,  0],
-                ],
+                columns: columns,
                 type: 'bar',
                 types: {
                     'Average Appointments': 'line',
