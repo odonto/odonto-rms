@@ -24,6 +24,7 @@ class ReferralPathway(PagePathway):
         models.CarerDetails,
         models.GPDetails,
         models.ReferralReason,
+        models.Xray,
         models.Disability,
         models.MedicalIssues,
         models.MentalHealthIssues,
