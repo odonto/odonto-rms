@@ -255,7 +255,7 @@ DEFAULT_DOMAIN = 'http://rms.com/'
 
 # Begins OPAL Settings you should edit !
 
-OPAL_BRAND_NAME = 'rms'
+OPAL_BRAND_NAME = 'Odonto Referral Management System'
 VERSION_NUMBER  = '<0.0.1'
 
 REST_FRAMEWORK = {

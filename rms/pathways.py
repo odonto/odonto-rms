@@ -22,6 +22,7 @@ class ReferralPathway(PagePathway):
             template_url="/templates/pathways/steps/patient_detail.html"
         ),
         models.CarerDetails,
+        models.GPDetails,
         models.ReferralReason,
         models.Disability,
         models.MedicalIssues,

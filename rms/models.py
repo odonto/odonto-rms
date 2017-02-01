@@ -69,6 +69,15 @@ class CarerDetails(models.PatientSubrecord):
     tel = fields.CharField(blank=True, null=True, max_length=50)
 
 
+class GPDetails(models.PatientSubrecord):
+    _title = "GP"
+    _is_singleton = True
+
+    name = fields.CharField(max_length=255, blank=True, null=True)
+    address = fields.TextField(blank=True, null=True)
+    tel = fields.CharField(blank=True, null=True, max_length=50)
+
+
 class ReferralReason(models.EpisodeSubrecord):
     _title = "Referral Reason"
     _is_singleton = True
@@ -122,11 +131,14 @@ class Disability(models.EpisodeSubrecord):
         default=UNIMPAIRED,
         verbose_name="Unable to communicate"
     )
-    able_to_leave_home = fields.BooleanField(default=False,
-                                             verbose_name="Unable to leave home")
-    able_to_stand_for_transfer = fields.BooleanField(default=False,
-                                                     verbose_name="Unable to stand for transfer")
-    has_capacity_to_consent = fields.BooleanField(default=False, verbose_name="Doubts over capacity to consent")
+    able_to_leave_home = fields.BooleanField(
+        default=False,
+        verbose_name="Unable to leave home")
+    able_to_stand_for_transfer = fields.BooleanField(
+        default=False,
+        verbose_name="Unable to stand for transfer")
+    has_capacity_to_consent = fields.BooleanField(
+        default=False, verbose_name="Doubts over capacity to consent")
 
 
 class MedicalIssues(models.EpisodeSubrecord):
