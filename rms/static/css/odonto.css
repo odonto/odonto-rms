@@ -169,8 +169,8 @@ td div.urgent {
   padding-left: 20px;
   color: white;
 }
-#side-nav ul.nav li {
-
+#side-nav ul.nav li i {
+  padding-right: 4px;
 }
 #side-nav li a{
     color: white;

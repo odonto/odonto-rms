@@ -19,7 +19,12 @@ class Application(application.OpalApplication):
     default_episode_category = 'Referral'
 
     menuitems = [
-        dict(href="/pathway/#/referral_form/", display="Make a referral", activepattern="pathway/#/referral_form/"),
-        dict(href="/#/list/new_referrals", display="Triage Inbox", activepattern="new_referrals"),
-        dict(href="/#/list/my_referrals", display="My Referrals", activepattern="my_referrals")
+        dict(href="/pathway/#/referral_form/", display="Make a referral",
+             icon="fa fa-plus", activepattern="pathway/#/referral_form/"),
+        dict(href="/#/list/new_referrals", display="Triage Inbox",
+             icon="fa fa-inbox", activepattern="new_referrals"),
+        dict(href="/#/list/approval_inbox", display="Approval Inbox",
+             icon="fa fa-inbox", activepattern="approval_inbox"),
+        dict(href="/#/list/my_referrals", display="My Referrals",
+             icon="fa fa-user", activepattern="my_referrals")
     ]
