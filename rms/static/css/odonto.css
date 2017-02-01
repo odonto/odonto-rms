@@ -215,3 +215,22 @@ td div.urgent {
 .green {
     color: #9cc96b;
 }
+.c3-xgrid-focus line { display: none; }
+
+.supernumber {
+  font-size: 98px;
+  text-align: center;
+  padding: 12px;
+}
+.superlabel{
+  text-align: center;
+  padding-bottom: 12px;
+}
+.superstat {
+  background-color: #3ebc99;
+
+}
+.superstat.failing {
+  background-color: red;
+  color: white;
+}
