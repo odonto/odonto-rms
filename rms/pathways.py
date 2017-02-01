@@ -42,7 +42,8 @@ class ReferralPathway(PagePathway):
         return patient
 
     def redirect_url(self, patient):
-        return '/#/list/new_referrals'
+        episode = patient.episode_set.last()
+        return '/#/patient/{0}/{1}'.format(patient.id, episode.id)
 
 
 class CheckAndFind(PagePathway):
