@@ -1,5 +1,5 @@
 {% load panels %}
-<div ng-show="allocatedClinicLocationHelper.submit">
+<div ng-hide="allocatedClinicLocationHelper.confirmed">
   <div  ng-repeat="tier in ['2', '3']" class="row">
     <div class="col-md-12">
       <div class="odonto-small-title">Tier [[ tier ]]</div>
@@ -20,20 +20,13 @@
       </span>
     </div>
   </div>
-  <div class="row content-offset">
+  <div  class="row content-offset">
     <div class="col-md-12 text-center">
-      <button ng-disabled="allocatedClinicLocationHelper.saving" ng-click="allocatedClinicLocationHelper.submit()" class="btn btn-primary">
+      <button ng-show="allocatedClinicLocationHelper.submit" ng-disabled="allocatedClinicLocationHelper.saving" ng-click="allocatedClinicLocationHelper.submit()" class="btn btn-primary">
         Submit for final approval
         <i class="fa fa-spinner fa-spin fa-fw" ng-show="self.saving"></i>
       </button>
-    </div>
-  </div>
-</div>
-<div ng-show="allocatedClinicLocationHelper.confirm">
-  {% record_panel models.AllocatedClinic %}
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <button ng-disabled="allocatedClinicLocationHelper.saving" ng-click="allocatedClinicLocationHelper.confirm()" class="btn btn-primary">
+      <button ng-show="allocatedClinicLocationHelper.confirm" ng-disabled="allocatedClinicLocationHelper.saving" ng-click="allocatedClinicLocationHelper.confirm()" class="btn btn-primary">
         Confirm
         <i class="fa fa-spinner fa-spin fa-fw" ng-show="self.saving"></i>
       </button>
@@ -41,5 +34,7 @@
   </div>
 </div>
 <div ng-show="allocatedClinicLocationHelper.confirmed">
-  {% record_panel models.AllocatedClinic %}
+  <div ng-repeat="item in episode.allocated_clinic">
+    {% include models.AllocatedClinic.get_detail_template %}
+  </div>
 </div>

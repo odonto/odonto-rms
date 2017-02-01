@@ -1,8 +1,9 @@
 {% load forms %}
-{% checkbox  field="MentalHealthIssues.has_mental_health_issues"  %}
+{% load odonto_forms %}
+{% btn_checkbox  field="MentalHealthIssues.has_mental_health_issues"  %}
 <span ng-show="editing.mental_health_issues.has_mental_health_issues">
   {% textarea  field="MentalHealthIssues.diagnosis"  %}
-  {% checkbox  field="MentalHealthIssues.extreme_dental_phobia"  %}
+  {% btn_checkbox  field="MentalHealthIssues.extreme_dental_phobia"  %}
   <span ng-show="editing.mental_health_issues.extreme_dental_phobia">
   {% textarea  field="MentalHealthIssues.details_of_dental_phobia"  %}
   </span>
