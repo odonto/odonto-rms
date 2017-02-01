@@ -20,6 +20,6 @@ class Application(application.OpalApplication):
 
     menuitems = [
         dict(href="/pathway/#/referral_form/", display="Make a referral", activepattern="pathway/#/referral_form/"),
-        dict(href="/#/list/new_referrals", display="New Referrals", activepattern="new_referrals"),
+        dict(href="/#/list/new_referrals", display="Triage Inbox", activepattern="new_referrals"),
         dict(href="/#/list/my_referrals", display="My Referrals", activepattern="my_referrals")
     ]
