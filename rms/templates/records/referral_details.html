@@ -1,6 +1,7 @@
-<span ng-show="item.who_id">
-    By [[ item.who_id ]] On
-</span><span ng-show="item.when">
-    [[ item.when | shortDateTime ]]
+<span ng-show="item.when">
+    [[ item.when | shortDate ]]
 </span>
- <br />
+<br />
+<span ng-show="item.who_id">
+  Referrer: [[ item.name ]]
+</span>

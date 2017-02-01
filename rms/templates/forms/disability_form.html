@@ -1,7 +1,7 @@
 {% load forms %}
 {% checkbox field="Disability.has_disability"  %}
 <span ng-show="editing.disability.has_disability">
-  {% radio field="Disability.able_to_communicate"  %}
+  {% select field="Disability.able_to_communicate"  %}
   {% checkbox field="Disability.able_to_leave_home"  %}
   {% checkbox field="Disability.able_to_stand_for_transfer"  %}
   {% checkbox field="Disability.has_capacity_to_consent"  %}

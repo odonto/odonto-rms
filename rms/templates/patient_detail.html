@@ -7,7 +7,9 @@
         {% block content %}
 
         <div class="col-md-3"> <!-- Episode Switcher -->
-            {% include 'partials/_demographics_panel.html' %}
+          {% include 'partials/_demographics_panel.html' %}
+          {% record_panel models.ReferralDetails editable=False %}
+          {% record_panel models.GPDetails %}
         </div> <!-- End episode switcher -->
 
         <div class="col-md-9">

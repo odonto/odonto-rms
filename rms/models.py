@@ -24,7 +24,7 @@ class ContactDetails(models.PatientSubrecord):
     _is_singleton = True
     _advanced_searchable = False
     _icon = 'fa fa-phone'
-
+    address = fields.TextField(blank=True, null=True)
     address_line1 = fields.CharField(
         "Address line 1", max_length=45, blank=True, null=True
     )
@@ -52,7 +52,10 @@ class RelationshipToPatient(lookuplists.LookupList):
 
 
 class CarerDetails(models.PatientSubrecord):
+    _title = "Carer Details"
+
     relationship_to_patient = ForeignKeyOrFreeText(RelationshipToPatient)
+    address = fields.TextField(blank=True, null=True)
     surname = fields.CharField(max_length=255, blank=True)
     first_name = fields.CharField(max_length=255, blank=True)
     address_line1 = fields.CharField(
@@ -67,10 +70,33 @@ class CarerDetails(models.PatientSubrecord):
     tel = fields.CharField(blank=True, null=True, max_length=50)
 
 
+class GPDetails(models.PatientSubrecord):
+    _title = "GP"
+    _is_singleton = True
+
+    name = fields.CharField(max_length=255, blank=True, null=True)
+    address = fields.TextField(blank=True, null=True)
+    tel = fields.CharField(blank=True, null=True, max_length=50)
+
+
 class ReferralReason(models.EpisodeSubrecord):
     _title = "Referral Reason"
-    _singleton = True
+    _is_singleton = True
 
+    URGENT = "Urgent"
+    ROUTINE = "Routine"
+    URGENCY_CHOICES = (
+        (ROUTINE, ROUTINE),
+        (URGENT, URGENT),
+    )
+
+    urgency = fields.CharField(
+        max_length=256,
+        choices=URGENCY_CHOICES,
+        null=True,
+        blank=True,
+        default=ROUTINE
+    )
     dental_treatment_needed = fields.TextField()
     dental_treatment_already_provided = fields.TextField()
     difficulties_encountered = fields.TextField()
@@ -116,8 +142,8 @@ class AllocatedClinic(models.EpisodeSubrecord):
 class Disability(models.EpisodeSubrecord):
     _is_singleton = True
     UNIMPAIRED = "Unimpaired"
-    PARTIALLY_IMPARED = "partially impaired"
-    SEVERLY_IMPARED = "severly impaired"
+    PARTIALLY_IMPARED = "Partially impaired"
+    SEVERLY_IMPARED = "Severly impaired"
     COMMUNICATE_CHOICES = (
         (UNIMPAIRED, UNIMPAIRED),
         (PARTIALLY_IMPARED, PARTIALLY_IMPARED),
@@ -130,11 +156,17 @@ class Disability(models.EpisodeSubrecord):
         choices=COMMUNICATE_CHOICES,
         null=True,
         blank=True,
-        default=UNIMPAIRED
+        default=UNIMPAIRED,
+        verbose_name="Unable to communicate"
     )
-    able_to_leave_home = fields.BooleanField(default=False)
-    able_to_stand_for_transfer = fields.BooleanField(default=False)
-    has_capacity_to_consent = fields.BooleanField(default=False)
+    able_to_leave_home = fields.BooleanField(
+        default=False,
+        verbose_name="Unable to leave home")
+    able_to_stand_for_transfer = fields.BooleanField(
+        default=False,
+        verbose_name="Unable to stand for transfer")
+    has_capacity_to_consent = fields.BooleanField(
+        default=False, verbose_name="Doubts over capacity to consent")
 
 
 class MedicalIssues(models.EpisodeSubrecord):
@@ -157,6 +189,16 @@ class MentalHealthIssues(models.EpisodeSubrecord):
 
 class ReferralDetails(models.EpisodeSubrecord):
     _is_singleton = True
+    _title = "Referral Details"
+    _editable =False
 
     when = fields.DateTimeField(blank=True, null=True)
     who = fields.ForeignKey(User, blank=True, null=True)
+
+    def to_dict(self, user):
+        d = super(ReferralDetails, self).to_dict(user)
+
+        d['username'] = self.who.username
+        d['email'] = self.who.email
+        d['name'] = "{0} {1}".format(self.who.first_name, self.who.last_name)
+        return d

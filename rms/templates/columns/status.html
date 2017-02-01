@@ -1,1 +1,11 @@
-STATUS
+<span ng-show="row.allocated_clinic[0].location && row.allocated_clinic[0].confirmed">
+  Referral approved clinic confirmed
+</span>
+
+<span ng-show="row.allocated_clinic[0].location && !row.allocated_clinic[0].confirmed">
+  Refferal in progress, pending final approval
+</span>
+
+<span ng-show="!row.allocated_clinic[0].location && !row.allocated_clinic[0].confirmed">
+  Referral in progress, under review by triage team
+</span>

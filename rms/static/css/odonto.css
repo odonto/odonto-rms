@@ -11,7 +11,6 @@ h2 {
     font-size: 18px;
     height: 48px;
 }
-
 .btn-lg {
     padding: 6px 40px;
     font-size: 18px;
@@ -129,4 +128,20 @@ h2 {
 .modal-header,
 .panel.panel-primary .panel-heading {
     background-color: rgb(72, 124, 188);
+}
+
+td div.urgent {
+    color: firebrick;
+    font-weight: bold;
+}
+.bg-urgent {
+    color: white;
+    background-color: firebrick;
+}
+.form-horizontal .control-label {
+  text-align: left;
+  font-size: 18px;
+  color: #999;
+  font-weight: normal;
+  padding-bottom: 8px;
 }
