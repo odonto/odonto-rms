@@ -1,6 +1,10 @@
 {% load forms %}
 {% input  field="CarerDetails.relationship_to_patient"  %}
-{% input  field="CarerDetails.surname"  %}
+<div style="width: 47%; float: left;">
 {% input  field="CarerDetails.first_name"  %}
+</div>
+<div style="float: left; width: 47%; margin-left: 6%">
+{% input  field="CarerDetails.surname"  %}
+</div>
 {% textarea  field="CarerDetails.address"  %}
 {% input  field="CarerDetails.tel"  %}

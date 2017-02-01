@@ -1,5 +1,11 @@
 {% load forms %}
-{% input field="Demographics.first_name" %}
-{% input field="Demographics.surname" %}
+
+<div style="width: 47%; float: left;">
+  {% input field="Demographics.first_name" %}
+</div>
+<div style="float: left; width: 47%; margin-left: 6%">
+  {% input field="Demographics.surname" %}
+</div>
+
 {% input field="Demographics.nhs_number" label="NHS Number" %}
 {% select field="Demographics.sex" %}
