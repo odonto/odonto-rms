@@ -201,3 +201,8 @@ td div.urgent {
   color: black;
   cursor: pointer;
 }
+
+.odonto-referral-detail {
+    overflow-y: scroll;
+    height: 80vh;
+}

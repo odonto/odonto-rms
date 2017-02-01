@@ -1,30 +1,30 @@
 {% load panels %}
 {% load forms %}
-<div class="col-md-8">
-<div class="nav-bar-odonto-container">
-  <h2 class="nav-bar-odonto-title">
-    New Referral
-  </h2>
-</div>
+<div class="col-md-8 odonto-referral-detail">
+  <div class="nav-bar-odonto-container">
+    <h2 class="nav-bar-odonto-title">
+      New Referral
+    </h2>
+  </div>
 
-<div class="col-md-12 bg-urgent" ng-show="episode.referral_reason[0].urgency == 'Urgent'">
-  <h1 class="text-center">Urgent Referral</h1>
-</div>
+  <div class="col-md-12 bg-urgent" ng-show="episode.referral_reason[0].urgency == 'Urgent'">
+    <h1 class="text-center">Urgent Referral</h1>
+  </div>
 
-<div class="col-md-12">
-  <!-- <h2>Treatment</h2> -->
-  {% record_panel models.ReferralReason %}
-</div>
+  <div class="col-md-12">
+    <!-- <h2>Treatment</h2> -->
+    {% record_panel models.ReferralReason %}
+  </div>
 
-<div class="col-md-12">
-  <!-- <h2>Why SCD?</h2> -->
-  {% record_panel models.MedicalIssues %}
-  {% record_panel models.Disability %}
-  {% record_panel models.MentalHealthIssues %}
-</div>
+  <div class="col-md-12">
+    <!-- <h2>Why SCD?</h2> -->
+    {% record_panel models.MedicalIssues %}
+    {% record_panel models.Disability %}
+    {% record_panel models.MentalHealthIssues %}
+  </div>
 
-<div ng-controller="AllocatedClinicLocationHelper as allocatedClinicLocationHelper" class="col-md-12">
-  <h2>Refer Where</h2>
-  {% include "partials/allocated_clinic_choices.html" %}
-</div>
+  <div ng-controller="AllocatedClinicLocationHelper as allocatedClinicLocationHelper" class="col-md-12">
+    <h2>Refer Where</h2>
+    {% include "partials/allocated_clinic_choices.html" %}
+  </div>
 </div> <!-- 9 -->
