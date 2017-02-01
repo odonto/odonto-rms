@@ -145,3 +145,41 @@ td div.urgent {
   font-weight: normal;
   padding-bottom: 8px;
 }
+
+
+.navbar-brand {
+    padding-left: 50px;
+}
+
+
+#side-nav {
+  background-color: #124c91;
+  background-color: #487DBC;
+  height: 100vh
+}
+#side-nav ul {
+  padding-top: 150px;
+}
+#side-nav li a{
+    color: white;
+
+}
+#side-nav li:hover,
+#side-nav li a:hover{
+  background-color: #2c64a8;
+  color: white;
+}
+
+#side-nav li a:hover{
+  cursor: pointer
+}
+#side-nav ul li.active,
+#side-nav ul li.active a{
+    background-color: #124c91;
+
+}
+
+.outer-container {
+  overflow-y: scroll;
+  height: 100vh;
+}
