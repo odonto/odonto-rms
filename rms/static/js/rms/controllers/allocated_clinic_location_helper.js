@@ -18,8 +18,8 @@ angular.module('opal.controllers').controller(
         allocated_clinic = $scope.episode.newItem("allocated_clinic");
       }
       var changed = allocated_clinic.makeCopy();
-
       self.confirmed = allocated_clinic.confirmed;
+      self.editing.allocated_clinic = changed;
 
       if(!self.confirmed){
         if(allocated_clinic.location_id){
@@ -33,8 +33,6 @@ angular.module('opal.controllers').controller(
           }
         }
         else{
-          self.editing.allocated_clinic = changed;
-
           self.submit = function(){
             self.saving = true;
             allocated_clinic.save(changed).then(function(){
