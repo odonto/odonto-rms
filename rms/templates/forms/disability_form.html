@@ -1,8 +1,9 @@
 {% load forms %}
-{% checkbox field="Disability.has_disability"  %}
+{% load odonto_forms %}
+{% btn_checkbox field="Disability.has_disability"  %}
 <span ng-show="editing.disability.has_disability">
   {% select field="Disability.able_to_communicate"  %}
-  {% checkbox field="Disability.able_to_leave_home"  %}
-  {% checkbox field="Disability.able_to_stand_for_transfer"  %}
-  {% checkbox field="Disability.has_capacity_to_consent"  %}
+  {% btn_checkbox field="Disability.able_to_leave_home"  %}
+  {% btn_checkbox field="Disability.able_to_stand_for_transfer"  %}
+  {% btn_checkbox field="Disability.has_capacity_to_consent"  %}
 </span>
