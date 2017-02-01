@@ -1,4 +1,5 @@
 {% load panels %}
+{% load forms %}
 <div class="col-md-8">
 <div class="nav-bar-odonto-container">
   <h2 class="nav-bar-odonto-title">
@@ -22,15 +23,8 @@
   {% record_panel models.MentalHealthIssues %}
 </div>
 
-<div class="col-md-12">
+<div ng-controller="AllocatedClinicLocationHelper as allocatedClinicLocationHelper" class="col-md-12">
   <h2>Refer Where</h2>
-  <center>
-    <button
-      ng-hide="profile.readonly"
-      ng-click=""
-      class="btn btn-primary btn-lg">
-      Complete
-    </button>
-  </center>
+  {% include "partials/allocated_clinic_choices.html" %}
 </div>
 </div> <!-- 9 -->

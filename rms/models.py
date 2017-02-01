@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from opal import models
 from opal.core.fields import ForeignKeyOrFreeText
 from opal.core import lookuplists
+from opal.utils import camelcase_to_underscore
 
 class Demographics(models.Demographics): pass
 class Location(models.Location): pass
@@ -75,12 +76,39 @@ class ReferralReason(models.EpisodeSubrecord):
     difficulties_encountered = fields.TextField()
 
 
-class ClinicLocation(lookuplists.LookupList):
-    pass
+class ClinicLocation(models.ToDictMixin, fields.Model):
+    TIER_CHOICES = (("2", "2",), ("3", "3"),)
+    # either 1 or 2
+    tier = fields.CharField(
+        max_length="1", blank=True, null=True
+    )
+    address_line1 = fields.CharField(
+        "Address line 1", max_length=45, blank=True, null=True
+    )
+    address_line2 = fields.CharField(
+        "Address line 2", max_length=45, blank=True, null=True
+    )
+    post_code = fields.CharField(
+        "Post Code", max_length=10, blank=True, null=True
+    )
+    tel = fields.CharField(max_length=50, blank=True, null=True)
+    name = fields.CharField(max_length=255, blank=True, null=True)
+
+    def __unicode__(self):
+        return "{0} {1}".format(self.name, self.tier)
+
+    @classmethod
+    def get_display_name(cls):
+        return cls._meta.object_name
+
+    @classmethod
+    def get_api_name(cls):
+        return camelcase_to_underscore(cls._meta.object_name)
 
 
 class AllocatedClinic(models.EpisodeSubrecord):
-    location = ForeignKeyOrFreeText(ClinicLocation)
+    _is_singleton = True
+    location = fields.ForeignKey(ClinicLocation, blank=True, null=True)
     confirmed = fields.BooleanField(default=False)
     letter_sent = fields.BooleanField(default=False)
 
