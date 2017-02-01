@@ -71,7 +71,7 @@ class CarerDetails(models.PatientSubrecord):
 
 
 class GPDetails(models.PatientSubrecord):
-    _title = "GP"
+    _title = "GMP"
     _is_singleton = True
 
     name = fields.CharField(max_length=255, blank=True, null=True)
