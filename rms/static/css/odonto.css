@@ -1,6 +1,7 @@
 /* Odonto wireframe stylings */
 body {
     background-color: white;
+    font-size: 16px;
 }
 
 h2 {
@@ -186,4 +187,17 @@ td div.urgent {
 .outer-container {
   overflow-y: scroll;
   height: 100vh;
+}
+.no-touchevents .panel-heading i.edit, .list-group-item i.edit, .list-group-item i.delete {
+  display: block;
+  color: #ccc;
+}
+
+.touchevents .panel-heading i.edit,
+.touchevents .panel-heading i.delete,
+.panel-heading:hover i.edit,
+.list-group-item:hover i.edit,
+.list-group-item:hover i.delete{
+  color: black;
+  cursor: pointer;
 }
