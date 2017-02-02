@@ -217,6 +217,8 @@ class ReferralDetails(models.EpisodeSubrecord):
 
 
 class Xray(models.EpisodeSubrecord):
+    _title ="Radiography"
+
     name = fields.CharField(max_length=256, blank=True, null=True)
     img = fields.FileField(blank=True, null=True)
     notes = fields.TextField(null=True, blank=True)
