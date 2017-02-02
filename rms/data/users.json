@@ -76,5 +76,23 @@
     },
     "model": "auth.user",
     "pk": 4
+},
+{
+    "fields": {
+        "username": "super",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": true,
+        "is_staff": true,
+        "last_login": null,
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$20000$uLK1i7JYWzp4$VCjswy1Lo8aZrN4iTpnnOcpi+2RuuUPK9jBBtuTG7ZQ=",
+        "email": "super@super.com",
+        "date_joined": "2017-02-02T10:33:14.761Z"
+    },
+    "model": "auth.user",
+    "pk": 5
 }
 ]
