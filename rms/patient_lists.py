@@ -46,6 +46,7 @@ Status = Column(
     template_path="columns/status.html"
 )
 
+
 class NewReferralsList(core.patient_lists.PatientList):
     display_name = 'Triage Inbox'
     slug = "new_referrals"

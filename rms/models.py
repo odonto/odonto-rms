@@ -101,6 +101,11 @@ class ReferralReason(models.EpisodeSubrecord):
     dental_treatment_already_provided = fields.TextField()
     difficulties_encountered = fields.TextField()
 
+    class Meta:
+        permissions = (
+            ("can_refer", "Can refer a patient"),
+        )
+
 
 class ClinicLocation(models.ToDictMixin, fields.Model):
     TIER_CHOICES = (("2", "2",), ("3", "3"),)
@@ -134,9 +139,16 @@ class ClinicLocation(models.ToDictMixin, fields.Model):
 
 class AllocatedClinic(models.EpisodeSubrecord):
     _is_singleton = True
+
     location = fields.ForeignKey(ClinicLocation, blank=True, null=True)
     confirmed = fields.BooleanField(default=False)
     letter_sent = fields.BooleanField(default=False)
+
+    class Meta:
+        permissions = (
+            ("can_assign_location", "Can assign a location"),
+            ("can_confirm_location", "Can confirm a location"),
+        )
 
 
 class Disability(models.EpisodeSubrecord):
