@@ -30,7 +30,7 @@ class Application(application.OpalApplication):
              icon="fa fa-user", activepattern="my_referrals"),
         dict(href="/#/overview", display="Region Overview",
              icon="fa fa-dashboard", activepattern="overview"),
-        dict(href="/#/myclinic", display="My Clinic",
+        dict(href="/#/myclinic", display="Morpeth Clinic",
              icon="fa fa-dashboard", activepattern="myclinic"),
 
     ]
