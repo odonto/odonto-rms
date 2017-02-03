@@ -18,31 +18,31 @@ angular.module('opal.controllers').controller(
         allocated_clinic = $scope.episode.newItem("allocated_clinic");
       }
       var changed = allocated_clinic.makeCopy();
+      self.submitted = allocated_clinic.location_id;
       self.confirmed = allocated_clinic.confirmed;
       self.editing.allocated_clinic = changed;
 
-      if(!self.confirmed){
-        if(allocated_clinic.location_id){
-          self.confirm = function(){
-            changed.confirmed = true;
-            self.saving = true;
-            allocated_clinic.save(changed).then(function(){
-              self.saving = false;
-              $route.reload();
-            });
-          }
-        }
-        else{
-          self.submit = function(){
-            self.saving = true;
-            allocated_clinic.save(changed).then(function(){
-              self.saving = false;
-              $route.reload();
-            });
-          };
-        }
+      $scope.$watch('allocatedClinicLocationHelper.editing.allocated_clinic.location_id', function() {
+        self.confirmed = false;
+        self.submitted = false;
+      });
+
+      self.confirm = function(){
+        changed.confirmed = true;
+        self.saving = true;
+        self.confirmed = true;
+        allocated_clinic.save(changed).then(function(){
+          self.saving = false;
+          self.editing.allocated_clinic =  $scope.episode.allocated_clinic[0].makeCopy();
+        });
       }
-
-
+      self.submit = function(){
+        self.saving = true;
+        self.submitted = true;
+        allocated_clinic.save(changed).then(function(){
+          self.saving = false;
+          self.editing.allocated_clinic =  $scope.episode.allocated_clinic[0].makeCopy();
+        });
+      };
     });
   });
