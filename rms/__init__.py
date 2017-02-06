@@ -35,7 +35,7 @@ class Application(application.OpalApplication):
         if not user:
             raise ValueError("A user was expected to set menu items")
 
-        if user.has_perm('rms.can_refer'):
+        if user.is_superuser or user.has_perm('rms.can_refer'):
             menu_items.append(
                 dict(
                     href="/pathway/#/referral_form/",
@@ -52,7 +52,7 @@ class Application(application.OpalApplication):
                 )
             )
 
-        if user.has_perm('rms.can_assign_location'):
+        if user.is_superuser or user.has_perm('rms.can_assign_location'):
             menu_items.append(
                 dict(
                     href="/#/list/new_referrals",
@@ -62,7 +62,7 @@ class Application(application.OpalApplication):
                 )
             )
 
-        if user.has_perm('rms.can_confirm_location'):
+        if user.is_superuser or user.has_perm('rms.can_confirm_location'):
             menu_items.append(
                 dict(
                     href="/#/list/approval_inbox",
