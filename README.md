@@ -1,8 +1,15 @@
-This is rms - an [OPAL](https://github.com/openhealthcare/opal) project.
+This repository contains the Odonto Referral Management System prototype.
+
+![](odonto.screenshot.png)
+
+### Installation
+
+The Odonto RMS prototype is built using [Opal](https://github.com/openhealthcare/opal).
 
 To get started, run the following commands:
 
 ```
+    pip install -r requirements.txt
     python manage.py migrate
     python manage.py runserver
 ```
