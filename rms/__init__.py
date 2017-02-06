@@ -1,11 +1,12 @@
 """
 rms - Our OPAL Application
 """
+import copy
+
 from opal.core import application
 
 
 class Application(application.OpalApplication):
-    flow_module   = 'rms.flow'
     javascripts   = [
         'js/rms/routes.js',
         'js/rms/controllers/directives.js',
@@ -20,8 +21,6 @@ class Application(application.OpalApplication):
     default_episode_category = 'Referral'
 
     menuitems = [
-        dict(href="/pathway/#/referral_form/", display="Make a referral",
-             icon="fa fa-plus", activepattern="pathway/#/referral_form/"),
         dict(href="/#/overview", display="Region Overview",
              icon="fa fa-dashboard", activepattern="overview"),
         dict(href="/#/myclinic", display="Morpeth Clinic",
@@ -30,10 +29,7 @@ class Application(application.OpalApplication):
 
     @classmethod
     def get_menu_items(cls, user=None):
-        menu_items = cls.menu_items
-
-        if not user:
-            raise ValueError("A user was expected to set menu items")
+        menu_items = []
 
         if user.is_superuser or user.has_perm('rms.can_refer'):
             menu_items.append(
@@ -72,4 +68,5 @@ class Application(application.OpalApplication):
                 ),
             )
 
+        menu_items += copy.copy(cls.menuitems)
         return menu_items
