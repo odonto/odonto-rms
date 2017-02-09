@@ -148,19 +148,19 @@
 
         });
     </script>
-    <div style="position: fixed; height: 60px; width: 100%; bottom: 0;">
-      <div style="position: absolute; height: 100%; width: 100%; background-color: #9CBEE6; opacity: 0.4">
+    <div class="switch-user-bar">
+      <div class="switch-user-bg">
       </div>
-      <div class="row" style="padding-top: 10px;">
+      <div class="row switch-user-container">
         <div class="col-md-10 col-md-push-1">
           <div class="col-md-4 text-center">
-            <a class="btn btn-lg btn-primary" href="{% url 'change_user' user='linda' %}">Linda</a>
+            <a class="btn btn-lg btn-{% if user.username == 'linda' %}default{% else %}primary{% endif %}" href="{% url 'change_user' user='linda' %}">Linda</a>
           </div>
           <div class="col-md-4 text-center">
-            <a class="btn btn-lg btn-primary" href="{% url 'change_user' user='mary' %}">Mary</a>
+            <a class="btn btn-lg btn-{% if user.username == 'mary' %}default{% else %}primary{% endif %}" href="{% url 'change_user' user='mary' %}">Mary</a>
           </div>
           <div class="col-md-4 text-center">
-            <a class="btn btn-lg btn-primary" href="{% url 'change_user' user='matt' %}">Matt</a>
+            <a class="btn btn-lg btn-{% if user.username == 'matt' %}default{% else %}primary{% endif %}" href="{% url 'change_user' user='matt' %}">Matt</a>
           </div>
         </div>
       </div>

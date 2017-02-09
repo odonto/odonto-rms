@@ -65,7 +65,7 @@ h2 {
     margin-top: 20px;
 }
 .ngProgressLiteBar {
-    top: 100px;
+    top: 90px;
     background-color: white;
 }
 .content-offset {
@@ -250,4 +250,28 @@ td div.urgent {
 .superstat.failing {
   background-color: red;
   color: white;
+}
+
+
+/*
+* switch user css
+*/
+
+.switch-user-bar{
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  bottom: 0;
+}
+
+.switch-user-bg{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #9CBEE6;
+  opacity: 0.4;
+}
+
+.switch-user-container{
+  padding-top: 10px;
 }
