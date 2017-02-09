@@ -112,7 +112,11 @@
     {% if OPAL_EXTRA_HEADER %}{% include OPAL_EXTRA_HEADER %}{% endif %}
     {% block navbar %}{% include 'navbar.html' %}{% endblock %}
     <div class="row">
-      <div class="col-md-2" id="side-nav">
+      <div class="col-md-2
+        {% if perms.rms.can_refer %}can-refer {% endif %}
+        {% if perms.rms.can_assign_location %}can-assign {% endif %}
+        {% if perms.rms.can_confirm_location %}can-confirm {% endif %}
+      " id="side-nav">
         <ul class="app-info">
           <li>
             <i class="fa fa-user green"></i>&nbsp;
@@ -144,6 +148,23 @@
 
         });
     </script>
+    <div style="position: fixed; height: 60px; width: 100%; bottom: 0;">
+      <div style="position: absolute; height: 100%; width: 100%; background-color: #9CBEE6; opacity: 0.4">
+      </div>
+      <div class="row" style="padding-top: 10px;">
+        <div class="col-md-10 col-md-push-1">
+          <div class="col-md-4 text-center">
+            <a class="btn btn-lg btn-primary" href="{% url 'change_user' user='linda' %}">Linda</a>
+          </div>
+          <div class="col-md-4 text-center">
+            <a class="btn btn-lg btn-primary" href="{% url 'change_user' user='mary' %}">Mary</a>
+          </div>
+          <div class="col-md-4 text-center">
+            <a class="btn btn-lg btn-primary" href="{% url 'change_user' user='matt' %}">Matt</a>
+          </div>
+        </div>
+      </div>
+    <div>
   </body>
 
 </html>

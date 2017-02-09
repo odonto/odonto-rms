@@ -23,6 +23,19 @@ h2 {
   color: #DDD;
 }
 
+#side-nav.can-refer{
+  background-color: #5E52C4;
+}
+
+
+#side-nav.can-assign{
+  background-color: #281A9A;
+}
+
+#side-nav.can-confirm{
+  background-color: #124c91;
+}
+
 .grey{
   color: #999;
 }
@@ -38,14 +51,14 @@ h2 {
 }
 
 .top-navbar {
-    height:100px;
+    height: 90px;
     background-color: rgb(72, 124, 188)
 }
 .navbar-default .navbar-nav > li > a {
     color: white;
 }
 .navbar-brand img {
-    height: 100px;
+    height: 80px;
     margin-top: -15px;
 }
 #main-navbar {
@@ -60,6 +73,10 @@ h2 {
 }
 .pathway-offset {
     margin-top: 80px;
+}
+
+.nav-bar-links{
+    margin-top: -5px;
 }
 
 .nav-bar-odonto-container{
