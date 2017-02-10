@@ -7,9 +7,13 @@
   >
     <div class="row">
       <div class="col-md-3 col-md-push-2">
-        <label style="width: 100%" uib-btn-checkbox ng-model="{{ model }}" class="btn btn-lg btn-default" btn-checkbox-true="1" btn-checkbox-false="0">
-          <span ng-show="{{ model }}">&#10004;</span>
-          <span ng-hide="{{ model }}">✘</span>
+        <label style="width: 100%" uib-btn-checkbox ng-model="{{ model }}" class="btn btn-lg btn-default" btn-checkbox-true="1" btn-checkbox-false="undefined">
+          Yes
+        </label>
+      </div>
+      <div class="col-md-3 col-md-push-2">
+        <label style="width: 100%" uib-btn-checkbox ng-model="{{ model }}" class="btn btn-lg btn-default" btn-checkbox-true="undefined" btn-checkbox-false="1">
+          No
         </label>
       </div>
     </div>
