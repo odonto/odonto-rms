@@ -1,5 +1,12 @@
 {% load forms %}
+{% load odonto_forms %}
 {% load files %}
-{% input field="Xray.name"  %}
-{% file_input field="Xray.img" %}
-{% textarea field="Xray.notes"  %}
+
+{% btn_checkbox field="Xray.xray_was_taken" %}
+<span ng-show="editing.xray.xray_was_taken">
+  {% input field="Xray.view"  %}
+  {% file_input field="Xray.img" %}
+  {% file_input field="Xray.img" %}
+  {% file_input field="Xray.img" %}
+  {% textarea field="Xray.notes"  %}
+</span>

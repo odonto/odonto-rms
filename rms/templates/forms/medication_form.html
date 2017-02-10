@@ -1,0 +1,6 @@
+{% load forms %}
+{% load odonto_forms %}
+{% btn_checkbox  field="Medication.on_medication"  %}
+<span ng-show="editing.medication.on_medication">
+  {% textarea  field="MedicalIssues.medications_taken"  %}
+</span>

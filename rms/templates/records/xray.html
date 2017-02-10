@@ -1,11 +1,15 @@
 {% load files %}
-
-<span ng-show="item.name">
-    [[ item.name ]]
-   <br />
+<span ng-show="item.xray_was_taken == false">
+  No Xray Was Taken
 </span>
-{% file_display %}
-<span ng-show="item.notes">
-    [[ item.notes ]]
-   <br />
+<span ng-show="item.xray_was_taken">
+  <span ng-show="item.name">
+      [[ item.view ]]
+     <br />
+  </span>
+  {% file_display %}
+  <span ng-show="item.notes">
+      [[ item.notes ]]
+     <br />
+  </span>
 </span>

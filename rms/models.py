@@ -184,8 +184,20 @@ class Disability(models.EpisodeSubrecord):
 class MedicalIssues(models.EpisodeSubrecord):
     _is_singleton = True
     _title = "Medical Issues"
-    has_medical_issues = fields.BooleanField(default=False)
-    main_medical_conditions = fields.TextField(blank=True)
+    has_medical_issues = fields.BooleanField(
+        verbose_name="Relevent Medical Issues We Should Know About",
+        default=False
+    )
+    main_medical_conditions = fields.TextField(
+        blank=True, verbose_name="Relevent Medical Issues"
+    )
+
+
+class Medication(models.EpisodeSubrecord):
+    on_medication = fields.BooleanField(
+        verbose_name="Currently On Medication",
+        default=False
+    )
     medications_taken = fields.TextField(blank=True)
 
 
@@ -219,7 +231,8 @@ class ReferralDetails(models.EpisodeSubrecord):
 class Xray(models.EpisodeSubrecord):
     _title ="Radiography"
 
-    name = fields.CharField(max_length=256, blank=True, null=True)
+    xray_was_taken = fields.NullBooleanField(verbose_name="An Xray Was Taken")
+    view = fields.CharField(max_length=256, blank=True, null=True)
     img = fields.FileField(blank=True, null=True)
     notes = fields.TextField(null=True, blank=True)
 
