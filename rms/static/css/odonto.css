@@ -260,8 +260,9 @@ td div.urgent {
 .switch-user-bar{
   position: fixed;
   height: 60px;
-  width: 100%;
+  width: 30%%;
   bottom: 0;
+  right: 0;
 }
 
 .switch-user-bg{
