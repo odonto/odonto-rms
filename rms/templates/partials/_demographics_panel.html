@@ -29,7 +29,7 @@
         <b>DOB</b>
       </div>
       <div class="col-md-8">
-        [[ patient.demographics[0].date_of_birth | shortDate ]]
+        [[ patient.demographics[0].date_of_birth | momentDateFormat:"DD MMM YY" ]]
       </div>
     </div>
     <div class="row">
