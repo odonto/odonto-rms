@@ -27,20 +27,20 @@
     {% record_panel models.MentalHealthIssues %}
   </div>
 
-    <div ng-controller="AllocatedClinicLocationHelper as allocatedClinicLocationHelper" class="col-md-12">
-      {% if perms.rms.can_assign_location or perms.rms.can_confirm_location %}
-        <h2>Refer Where</h2>
+  <div class="panel-margin" ng-controller="AllocatedClinicLocationHelper as allocatedClinicLocationHelper" class="col-md-12">
+    {% if perms.rms.can_assign_location or perms.rms.can_confirm_location %}
+      <h2 class="panel-margin">Refer Where</h2>
+      {% include "partials/clinic_location.html" %}
+      {% include "partials/allocated_clinic_choices.html" %}
+    {% else %}
+      <div ng-hide="allocatedClinicLocationHelper.editing.allocated_clinic.location_id">
+        <h2>Awaiting Triage</h2>
+      </div>
+      <div ng-show="allocatedClinicLocationHelper.editing.allocated_clinic.location_id">
+        <h2>Referred To</h2>
         {% include "partials/clinic_location.html" %}
-        {% include "partials/allocated_clinic_choices.html" %}
-      {% else %}
-        <div ng-hide="allocatedClinicLocationHelper.editing.allocated_clinic.location_id">
-          <h2>Awaiting Triage</h2>
-        </div>
-        <div ng-show="allocatedClinicLocationHelper.editing.allocated_clinic.location_id">
-          <h2>Referred To</h2>
-          {% include "partials/clinic_location.html" %}
-        </div>
-      {% endif %}
-    </div>
+      </div>
+    {% endif %}
+  </div>
   </div>
 </div> <!-- 9 -->

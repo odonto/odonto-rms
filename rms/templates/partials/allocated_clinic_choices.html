@@ -1,6 +1,6 @@
 {% load panels %}
 {% if perms.rms.can_assign_location or perms.rms.can_confirm_location %}
-  <h3>Centre</h3>
+  <h3 class="panel-margin">Centre</h3>
   <div class="row">
     <div class="col-md-12">
       <span ng-repeat="clinic_location in metadata.clinic_location">
@@ -17,8 +17,8 @@
       </span>
     </div>
   </div>
-  <h3>Tier</h3>
-  <div class="row" >
+  <h3 class="panel-margin">Tier</h3>
+  <div class="row panel-margin">
     <div class="col-sm-4" ng-repeat="tier in ['1', '2', '3']">
       <label style="width: 100%" class="btn btn-lg btn-default" ng-model="allocatedClinicLocationHelper.editing.allocated_clinic.tier" uib-btn-radio="tier">
         <h5>[[ tier ]]</h5>
@@ -49,6 +49,9 @@
         </span>
       </button>
       {% endif %}
+      <button ng-click="episode.recordEditor.newItem('request_further_information')" class="btn" ng-disabled="allocatedClinicLocationHelper.saving">
+        Request Further Information
+      </button>
     </div>
   </div>
 {% else %}

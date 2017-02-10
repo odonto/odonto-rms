@@ -44,7 +44,8 @@ class Application(application.OpalApplication):
                     href="/#/list/my_referrals",
                     display="My Referrals",
                     icon="fa fa-user",
-                    activepattern="my_referrals"
+                    activepattern="my_referrals",
+                    template_name="menu_items/my_referrals.html"
                 )
             )
 

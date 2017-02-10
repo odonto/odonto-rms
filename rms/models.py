@@ -3,6 +3,7 @@ rms models.
 """
 from django.db import models as fields
 from django.contrib.auth.models import User
+from django.db import transaction
 
 from opal import models
 from opal.core.fields import ForeignKeyOrFreeText
@@ -239,6 +240,20 @@ class ReferralDetails(models.EpisodeSubrecord):
         d['email'] = self.who.email
         d['name'] = "{0} {1}".format(self.who.first_name, self.who.last_name)
         return d
+
+class RequestFurtherInformation(models.EpisodeSubrecord):
+    information_required = fields.TextField(blank=True, null=True)
+    completed = fields.BooleanField(default=False)
+
+    @transaction.atomic()
+    def update_from_dict(self, *args, **kwargs):
+        episode = self.episode
+        super(RequestFurtherInformation, self).update_from_dict(*args, **kwargs)
+        allocated_clinic = self.episode.allocatedclinic_set.get()
+        allocated_clinic.location = None
+        allocated_clinic.tier = None
+        allocated_clinic.confirmed = False
+        allocated_clinic.save()
 
 
 class Xray(models.EpisodeSubrecord):
