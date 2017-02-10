@@ -21,8 +21,8 @@ class Application(application.OpalApplication):
     default_episode_category = 'Referral'
 
     menuitems = [
-        dict(href="/#/overview", display="Region Overview",
-             icon="fa fa-dashboard", activepattern="overview"),
+        # dict(href="/#/overview", display="Region Overview",
+        #      icon="fa fa-dashboard", activepattern="overview"),
         dict(href="/#/myclinic", display="Morpeth Clinic",
              icon="fa fa-dashboard", activepattern="myclinic"),
     ]
