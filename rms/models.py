@@ -108,25 +108,29 @@ class ReferralReason(models.EpisodeSubrecord):
 
 
 class ClinicLocation(models.ToDictMixin, fields.Model):
-    TIER_CHOICES = (("2", "2",), ("3", "3"),)
-    # either 1 or 2
-    tier = fields.CharField(
-        max_length="1", blank=True, null=True
-    )
     address_line1 = fields.CharField(
         "Address line 1", max_length=45, blank=True, null=True
     )
     address_line2 = fields.CharField(
         "Address line 2", max_length=45, blank=True, null=True
     )
+    address_line3 = fields.CharField(
+        "Address line 3", max_length=45, blank=True, null=True
+    )
+
     post_code = fields.CharField(
         "Post Code", max_length=10, blank=True, null=True
     )
     tel = fields.CharField(max_length=50, blank=True, null=True)
+    fax = fields.CharField(max_length=50, blank=True, null=True)
     name = fields.CharField(max_length=255, blank=True, null=True)
+    hoist_available = fields.BooleanField(default=False)
+    inhalation_sedation = fields.BooleanField(default=False)
+    patient_transport = fields.BooleanField(default=False)
+    wheelchair_access = fields.BooleanField(default=False)
 
     def __unicode__(self):
-        return "{0} {1}".format(self.name, self.tier)
+        return "{0}({1})".format(self.name, self.tel)
 
     @classmethod
     def get_display_name(cls):
@@ -140,7 +144,16 @@ class ClinicLocation(models.ToDictMixin, fields.Model):
 class AllocatedClinic(models.EpisodeSubrecord):
     _is_singleton = True
 
+    CHOICES = (
+        ("1", "1",),
+        ("2", "2",),
+        ("3", "3",),
+    )
+
     location = fields.ForeignKey(ClinicLocation, blank=True, null=True)
+    tier = fields.CharField(
+        choices=CHOICES, blank=True, null=True, max_length=1
+    )
     confirmed = fields.BooleanField(default=False)
     letter_sent = fields.BooleanField(default=False)
 

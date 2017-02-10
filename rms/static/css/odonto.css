@@ -1,7 +1,7 @@
 /* Odonto wireframe stylings */
 body {
     background-color: white;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 h2 {
@@ -251,6 +251,15 @@ td div.urgent {
   background-color: red;
   color: white;
 }
+
+.btn.btn-default small{
+  color: #CCC;
+}
+
+.btn.btn-default small{
+  color: #CCC;
+}
+
 
 
 /*

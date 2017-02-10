@@ -1,23 +1,28 @@
 {% load panels %}
 {% if perms.rms.can_assign_location or perms.rms.can_confirm_location %}
-  <div  ng-repeat="tier in ['2', '3']" class="row">
+  <h3>Centre</h3>
+  <div class="row">
     <div class="col-md-12">
-      <div class="odonto-small-title">Tier [[ tier ]]</div>
-      <span ng-repeat="clinic_location in metadata.clinic_location | filter:{tier: tier}">
+      <span ng-repeat="clinic_location in metadata.clinic_location">
         <div ng-class="{'row': ($index+1)%3==0}">
           <div class="col-md-4 content-offset-below-20">
             <label style="width: 100%" class="btn btn-lg btn-default" ng-model="allocatedClinicLocationHelper.editing.allocated_clinic.location_id" uib-btn-radio="clinic_location.id">
               <h5>
                 <p>[[ clinic_location.name  ]]</p>
-                <p><small>[[ clinic_location.address_line1 ]]</small></p>
-                <p><small>[[ clinic_location.address_line2 ]]</small></p>
-                <p><small>[[ clinic_location.post_code ]]</small></p>
-                <p><small>[[ clinic_location.tel ]]</small></p>
+                <p><small><i class="fa fa-phone"></i> [[ clinic_location.tel ]]</small></p>
               </h5>
             </label>
           </div>
         </div>
       </span>
+    </div>
+  </div>
+  <h3>Tier</h3>
+  <div class="row" >
+    <div class="col-sm-4" ng-repeat="tier in ['1', '2', '3']">
+      <label style="width: 100%" class="btn btn-lg btn-default" ng-model="allocatedClinicLocationHelper.editing.allocated_clinic.tier" uib-btn-radio="tier">
+        <h5>[[ tier ]]</h5>
+      </label>
     </div>
   </div>
   <div class="row content-offset">

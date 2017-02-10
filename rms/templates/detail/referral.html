@@ -1,7 +1,7 @@
 {% load panels %}
 {% load forms %}
 {% load files %}
-<div class="col-md-8 odonto-referral-detail">
+<div class="col-md-12 odonto-referral-detail">
   <div class="nav-bar-odonto-container">
     <h2 class="nav-bar-odonto-title">
       New
@@ -29,6 +29,7 @@
 
   <div ng-controller="AllocatedClinicLocationHelper as allocatedClinicLocationHelper" class="col-md-12">
     <h2>Refer Where</h2>
+    {% include "partials/clinic_location.html" %}
     {% include "partials/allocated_clinic_choices.html" %}
   </div>
 </div> <!-- 9 -->

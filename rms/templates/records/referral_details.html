@@ -1,7 +1,7 @@
 <span ng-show="item.when">
-  Referred: [[ item.when | momentDateFormat:"DD MMM YY" ]]
-</span>
-<br />
-<span ng-show="item.who_id">
-  Referrer: [[ item.name ]]
+  Referred: <br />
+  [[ item.when | momentDateFormat:"DD MMM YY" ]]
+  <span ng-show="item.who_id">
+    by [[ item.name ]]
+  </span>
 </span>

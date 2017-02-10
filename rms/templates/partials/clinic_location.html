@@ -1,0 +1,55 @@
+<div ng-show="allocatedClinicLocationHelper.editing.allocated_clinic.location_id" class="well">
+  <div ng-show="clinicLocation.id === allocatedClinicLocationHelper.editing.allocated_clinic.location_id" ng-repeat="clinicLocation in metadata.clinic_location" class="row">
+    <div class="row">
+      <div class="col-md-11 col-md-push-1">
+        <h4>[[ clinicLocation.name ]]</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-push-1">
+          <div ng-show="clinicLocation.tel"><i class="fa fa-phone"></i> [[ clinicLocation.tel ]]</div>
+          <br />
+          <div ng-show="clinicLocation.address_line1">[[ clinicLocation.address_line1 ]]</div>
+          <div ng-show="clinicLocation.address_line2">[[ clinicLocation.address_line2 ]]</div>
+          <div ng-show="clinicLocation.address_line3">[[ clinicLocation.address_line3 ]]</div>
+          <div ng-show="clinicLocation.post_code">[[ clinicLocation.post_code ]]</div>
+      </div>
+      <div class="col-md-4 col-md-push-2">
+        <div ng-show="clinicLocation.fax"><i class="fa fa-print"></i> [[ clinicLocation.fax ]]</div>
+        <br />
+        <div class="row">
+          <div class="col-md-10">
+            Hoist Available:
+          </div>
+          <div class="col-md-2">
+            <span ng-show="clinicLocation.hoist_available">Yes</span><span ng-Hide="clinicLocation.hoist_available">No</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            Inhalation Sedation:
+          </div>
+          <div class="col-md-2">
+            <span ng-show="clinicLocation.inhalation_sedation">Yes</span><span ng-Hide="clinicLocation.inhalation_sedation">No</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            Patient Transport:
+          </div>
+          <div class="col-md-2">
+            <span ng-show="clinicLocation.patient_transport">Yes</span><span ng-Hide="clinicLocation.patient_transport">No</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            Wheelchar Access:
+          </div>
+          <div class="col-md-2">
+            <span ng-show="clinicLocation.wheelchair_access">Yes</span><span ng-Hide="clinicLocation.wheelchair_access">No</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
