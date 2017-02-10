@@ -59,10 +59,10 @@ class CarerDetails(models.PatientSubrecord):
     surname = fields.CharField(max_length=255, blank=True)
     first_name = fields.CharField(max_length=255, blank=True)
     address_line1 = fields.CharField(
-        "Address line 1", max_length=45, blank=True, null=True
+        "Address Line 1", max_length=45, blank=True, null=True
     )
     address_line2 = fields.CharField(
-        "Address line 2", max_length=45, blank=True, null=True
+        "Address Line 2", max_length=45, blank=True, null=True
     )
     post_code = fields.CharField(
         "Post Code", max_length=10, blank=True, null=True
@@ -154,8 +154,8 @@ class AllocatedClinic(models.EpisodeSubrecord):
 class Disability(models.EpisodeSubrecord):
     _is_singleton = True
     UNIMPAIRED = "Unimpaired"
-    PARTIALLY_IMPARED = "Partially impaired"
-    SEVERLY_IMPARED = "Severly impaired"
+    PARTIALLY_IMPARED = "Partially Impaired"
+    SEVERLY_IMPARED = "Severly Impaired"
     COMMUNICATE_CHOICES = (
         (UNIMPAIRED, UNIMPAIRED),
         (PARTIALLY_IMPARED, PARTIALLY_IMPARED),
@@ -169,16 +169,16 @@ class Disability(models.EpisodeSubrecord):
         null=True,
         blank=True,
         default=UNIMPAIRED,
-        verbose_name="Unable to communicate"
+        verbose_name="Unable To Communicate"
     )
     able_to_leave_home = fields.BooleanField(
         default=False,
-        verbose_name="Unable to leave home")
+        verbose_name="Unable To Leave Home")
     able_to_stand_for_transfer = fields.BooleanField(
         default=False,
-        verbose_name="Unable to stand for transfer")
+        verbose_name="Unable To Stand For Transfer")
     has_capacity_to_consent = fields.BooleanField(
-        default=False, verbose_name="Doubts over capacity to consent")
+        default=False, verbose_name="Doubts Over Capacity To Consent")
 
 
 class MedicalIssues(models.EpisodeSubrecord):
