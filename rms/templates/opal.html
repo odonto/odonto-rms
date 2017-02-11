@@ -154,13 +154,13 @@
       <div class="row switch-user-container">
         <div class="col-md-10 col-md-push-1">
           <div class="col-md-4 text-center">
-            <a class="btn btn-lg btn-{% if user.username == 'linda' %}default{% else %}primary{% endif %}" href="{% url 'change_user' user='linda' %}">Linda</a>
+            <a class="btn btn-lg can-refer btn-{% if user.username == 'linda' %}active{% else %}primary{% endif %}" href="{% url 'change_user' user='linda' %}">Linda</a>
           </div>
           <div class="col-md-4 text-center">
-            <a class="btn btn-lg btn-{% if user.username == 'mary' %}default{% else %}primary{% endif %}" href="{% url 'change_user' user='mary' %}">Mary</a>
+            <a class="btn btn-lg can-assign btn-{% if user.username == 'mary' %}active{% else %}primary{% endif %}" href="{% url 'change_user' user='mary' %}">Mary</a>
           </div>
           <div class="col-md-4 text-center">
-            <a class="btn btn-lg btn-{% if user.username == 'matt' %}default{% else %}primary{% endif %}" href="{% url 'change_user' user='matt' %}">Matt</a>
+            <a class="btn btn-lg can-confirm btn-{% if user.username == 'matt' %}active{% else %}primary{% endif %}" href="{% url 'change_user' user='matt' %}">Matt</a>
           </div>
         </div>
       </div>

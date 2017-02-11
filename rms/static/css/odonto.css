@@ -54,6 +54,21 @@ h2 {
     height: 90px;
     background-color: rgb(72, 124, 188)
 }
+
+.top-navbar.can-refer{
+  background-color: #5E52C4;
+}
+
+
+.top-navbar.can-assign{
+  background-color: #281A9A;
+}
+
+.top-navbar.can-confirm{
+  background-color: #124c91;
+}
+
+
 .navbar-default .navbar-nav > li > a {
     color: white;
 }
@@ -288,4 +303,36 @@ td div.urgent {
 
 .switch-user-container{
   padding-top: 10px;
+}
+
+
+.btn.can-refer{
+  background-color: #5E52C4;
+  color: white;
+}
+
+.btn.can-refer.btn-active{
+  background-color: white;
+  color: #5E52C4;
+}
+
+
+.btn.can-assign{
+  background-color: #281A9A;
+  color: white;
+}
+
+.btn.can-assign.btn-active{
+  background-color: white;
+  color: #281A9A;
+}
+
+.btn.can-confirm{
+  background-color: #124c91;
+  color: white;
+}
+
+.btn.can-confirm.btn-active{
+  background-color: white;
+  color: #124c91;
 }
