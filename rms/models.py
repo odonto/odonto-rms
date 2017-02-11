@@ -264,6 +264,12 @@ class Xray(models.EpisodeSubrecord):
     img = fields.FileField(blank=True, null=True)
     notes = fields.TextField(null=True, blank=True)
 
+    def update_from_dict(self, data, user, **kwargs):
+        data.pop("img")
+        return super(Xray, self).update_from_dict(
+            data, user, **kwargs
+        )
+
     @classmethod
     def _get_fieldnames_to_serialize(cls):
         fields = set(super(Xray, cls)._get_fieldnames_to_serialize())

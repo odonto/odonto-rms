@@ -6,7 +6,7 @@
 <span ng-show="editing.xray.xray_was_taken">
   {% input field="Xray.view"  %}
   {% file_input field="Xray.img" %}
-  {% file_input field="Xray.img" %}
-  {% file_input field="Xray.img" %}
+  {% file_input field="Xray.img" model="somethingElse1" %}
+  {% file_input field="Xray.img" model="somethingElse2" %}
   {% textarea field="Xray.notes"  %}
 </span>
