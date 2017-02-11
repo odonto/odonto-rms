@@ -1,1 +1,155 @@
-[{"fields": {"address_line2": "", "address_line1": "", "tel": "01670 500 967", "name": "Morpeth", "post_code": "", "tier": "2"}, "model": "rms.cliniclocation", "pk": 1}, {"fields": {"address_line2": "", "address_line1": "", "tel": "", "name": "Ashington", "post_code": "", "tier": "2"}, "model": "rms.cliniclocation", "pk": 2}, {"fields": {"address_line2": "", "address_line1": "", "tel": "", "name": "Wansbeck", "post_code": "", "tier": "2"}, "model": "rms.cliniclocation", "pk": 3}, {"fields": {"address_line2": "", "address_line1": "", "tel": "01670 396 471", "name": "Blyth", "post_code": "", "tier": "2"}, "model": "rms.cliniclocation", "pk": 4}, {"fields": {"address_line2": "", "address_line1": "", "tel": "", "name": "Amble", "post_code": "", "tier": "2"}, "model": "rms.cliniclocation", "pk": 5}, {"fields": {"address_line2": "", "address_line1": "", "tel": "0191 219 6693", "name": "Albion Road", "post_code": "", "tier": "2"}, "model": "rms.cliniclocation", "pk": 6}, {"fields": {"address_line2": "", "address_line1": "", "tel": "0345 2987 187", "name": "Longbenton", "post_code": "", "tier": "2"}, "model": "rms.cliniclocation", "pk": 7}, {"fields": {"address_line2": "", "address_line1": "", "tel": "", "name": "Wallsend", "post_code": "", "tier": "2"}, "model": "rms.cliniclocation", "pk": 8}, {"fields": {"address_line2": "", "address_line1": "", "tel": "", "name": "Wansbeck", "post_code": "", "tier": "3"}, "model": "rms.cliniclocation", "pk": 9}, {"fields": {"address_line2": "", "address_line1": "", "tel": "", "name": "Anwick", "post_code": "", "tier": "3"}, "model": "rms.cliniclocation", "pk": 10}, {"fields": {"address_line2": "", "address_line1": "", "tel": "", "name": "North Tyneside", "post_code": "", "tier": "3"}, "model": "rms.cliniclocation", "pk": 11}]
+[
+{
+    "fields": {
+        "address_line2": "Albion Road",
+        "address_line3": "North Shields",
+        "fax": "01912-196-690",
+        "address_line1": "Albion Road Resource Centre",
+        "tel": "0191-219-6683",
+        "name": "Albion  Road",
+        "inhalation_sedation": true,
+        "patient_transport": true,
+        "wheelchair_access": true,
+        "hoist_available": true,
+        "post_code": "NE29 0HG"
+    },
+    "model": "rms.cliniclocation",
+    "pk": 1
+},
+{
+    "fields": {
+        "address_line2": "Amble Health Centre",
+        "address_line3": "Percy Drive",
+        "fax": "01665 -711-740",
+        "address_line1": "Dental Department",
+        "tel": "01665-711-739",
+        "name": "Amble",
+        "inhalation_sedation": false,
+        "patient_transport": false,
+        "wheelchair_access": false,
+        "hoist_available": false,
+        "post_code": "NE65 0PL"
+    },
+    "model": "rms.cliniclocation",
+    "pk": 2
+},
+{
+    "fields": {
+        "address_line2": "Thoroton Street",
+        "address_line3": "Northumberland",
+        "fax": "01670-396-472",
+        "address_line1": "The Health Centre",
+        "tel": "01670-396-471",
+        "name": "Blyth",
+        "inhalation_sedation": false,
+        "patient_transport": false,
+        "wheelchair_access": false,
+        "hoist_available": false,
+        "post_code": "NE24 1DX"
+    },
+    "model": "rms.cliniclocation",
+    "pk": 3
+},
+{
+    "fields": {
+        "address_line2": "West Farm Avenue",
+        "address_line3": "Tyne & Wear",
+        "fax": "",
+        "address_line1": "The Oxford Centre",
+        "tel": "01912-180-080",
+        "name": "Longbenton",
+        "inhalation_sedation": false,
+        "patient_transport": false,
+        "wheelchair_access": false,
+        "hoist_available": false,
+        "post_code": "NE12 8LT"
+    },
+    "model": "rms.cliniclocation",
+    "pk": 4
+},
+{
+    "fields": {
+        "address_line2": "Hexham General Hospital",
+        "address_line3": "Corbridge Road",
+        "fax": "",
+        "address_line1": "Community Dental Service Day Treatment Centre",
+        "tel": "01434-4655-330",
+        "name": "Hexham",
+        "inhalation_sedation": false,
+        "patient_transport": true,
+        "wheelchair_access": true,
+        "hoist_available": false,
+        "post_code": "NE46 1QY"
+    },
+    "model": "rms.cliniclocation",
+    "pk": 5
+},
+{
+    "fields": {
+        "address_line2": "The Mount",
+        "address_line3": "Morpeth",
+        "fax": "0167-060-0966",
+        "address_line1": "Dental Deparment Morpeth NHS Centre",
+        "tel": "0167-060-0967",
+        "name": "Morepeth",
+        "inhalation_sedation": false,
+        "patient_transport": true,
+        "wheelchair_access": true,
+        "hoist_available": true,
+        "post_code": "NE71 1JY"
+    },
+    "model": "rms.cliniclocation",
+    "pk": 6
+},
+{
+    "fields": {
+        "address_line2": "Norham Road",
+        "address_line3": "Ashinton",
+        "fax": "01670-383-602",
+        "address_line1": "Dental Deparment Seaton Park Medical Group",
+        "tel": "01670-383-600",
+        "name": "Seaton Hirst",
+        "inhalation_sedation": true,
+        "patient_transport": false,
+        "wheelchair_access": true,
+        "hoist_available": false,
+        "post_code": "NE63 0NG"
+    },
+    "model": "rms.cliniclocation",
+    "pk": 7
+},
+{
+    "fields": {
+        "address_line2": "The Green",
+        "address_line3": "Wallsend",
+        "fax": "0191-220-5927",
+        "address_line1": "Wallsend Health Centre",
+        "tel": "0191-220-5926",
+        "name": "Wallsend",
+        "inhalation_sedation": true,
+        "patient_transport": false,
+        "wheelchair_access": false,
+        "hoist_available": false,
+        "post_code": "NE28 7PB"
+    },
+    "model": "rms.cliniclocation",
+    "pk": 8
+},
+{
+    "fields": {
+        "address_line2": "Woodhorn Lane",
+        "address_line3": "Ashington",
+        "fax": "01670-564-140",
+        "address_line1": "Wansbeck General Hospital",
+        "tel": "01670-564-139",
+        "name": "Ward 15",
+        "inhalation_sedation": false,
+        "patient_transport": true,
+        "wheelchair_access": true,
+        "hoist_available": false,
+        "post_code": "NE63 9JJ"
+    },
+    "model": "rms.cliniclocation",
+    "pk": 9
+}
+]
