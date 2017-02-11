@@ -25,10 +25,10 @@
       </label>
     </div>
   </div>
-  <div class="row content-offset">
+  <div class="row content-offset content-offset-below">
     <div class="col-md-12 text-center">
       {% if perms.rms.can_assign_location %}
-        <button ng-disabled="allocatedClinicLocationHelper.saving || allocatedClinicLocationHelper.submitted" ng-click="allocatedClinicLocationHelper.submit()" class="btn btn-primary">
+        <button ng-disabled="allocatedClinicLocationHelper.saving || allocatedClinicLocationHelper.submitted" ng-click="allocatedClinicLocationHelper.submit()" class="btn btn-lg btn-primary">
           <span ng-hide="allocatedClinicLocationHelper.submitted">
             Submit for final approval
             <i class="fa fa-spinner fa-spin fa-fw" ng-show="self.saving"></i>
@@ -39,7 +39,7 @@
         </button>
       {% endif %}
       {% if perms.rms.can_confirm_location %}
-      <button ng-disabled="allocatedClinicLocationHelper.saving || allocatedClinicLocationHelper.confirmed" ng-click="allocatedClinicLocationHelper.confirm()" class="btn btn-primary">
+      <button ng-disabled="allocatedClinicLocationHelper.saving || allocatedClinicLocationHelper.confirmed" ng-click="allocatedClinicLocationHelper.confirm()" class="btn btn-lg btn-primary">
         <span ng-hide="allocatedClinicLocationHelper.confirmed">
           Confirm
           <i class="fa fa-spinner fa-spin fa-fw" ng-show="self.saving"></i>
@@ -49,7 +49,7 @@
         </span>
       </button>
       {% endif %}
-      <button ng-click="episode.recordEditor.newItem('request_further_information')" class="btn" ng-disabled="allocatedClinicLocationHelper.saving">
+      <button ng-click="episode.recordEditor.newItem('request_further_information')" class="btn btn-lg" ng-disabled="allocatedClinicLocationHelper.saving || allocatedClinicLocationHelper.confirmed || allocatedClinicLocationHelper.submitted">
         Request Further Information
       </button>
     </div>
