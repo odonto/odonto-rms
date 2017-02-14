@@ -12,7 +12,7 @@ class ImgTemplateView(LoginRequiredMixin, TemplateView):
         model = get_subrecord_from_api_name(kwargs["model"])
         instance = model.objects.get(pk=kwargs["pk"])
         context = super(ImgTemplateView, self).get_context_data(**kwargs)
-        context["title"] = instance.name
+        context["title"] = instance.view
         return context
 
 
