@@ -15,7 +15,6 @@ class ReferralPathway(PagePathway):
     step_wrapper_template_url = "/templates/pathways/step_wrappers/odonto_page_wrapper.html"
     template_url = "/templates/pathways/odonto_pathway_base.html"
 
-
     steps = (
         Step(
             display_name='Patient Details',

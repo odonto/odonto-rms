@@ -14,11 +14,95 @@
           </div>
           {% endblock pathway_header %}
           {% block pathway_body %}
-            <div class="to_append"></div>
-          {% endblock pathway_body %}
-          <div class="text-center" ng-show="form.$submitted && form.$invalid">
-              <strong class="help-block">Please fix the above errors</strong>
+          <div class="row">
+              <h2>
+                Patient Details
+              </h2>
+              <div>
+                {% include "pathways/steps/patient_detail.html" %}
+              </div>
           </div>
+          <div class="row">
+            <div class="form-horizontal">
+              <h2>
+                <i class="{{ models.CarerDetails.get_icon }}"></i>
+                {{ models.CarerDetails.get_display_name }}
+              </h2>
+              <div>
+                {% include models.CarerDetails.get_form_template %}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-horizontal">
+              <h2>
+                <i class="{{ models.GPDetails.get_icon }}"></i>
+                {{ models.GPDetails.get_display_name }}
+              </h2>
+              <div>
+                {% include models.GPDetails.get_form_template %}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-horizontal">
+              <h2>
+                <i class="{{ models.ReferralReason.get_icon }}"></i>
+                {{ models.ReferralReason.get_display_name }}
+              </h2>
+              <div>
+                {% include models.ReferralReason.get_form_template %}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-horizontal">
+              <h2>
+                <i class="{{ models.Xray.get_icon }}"></i>
+                {{ models.Xray.get_display_name }}
+              </h2>
+              <div>
+                {% include models.Xray.get_form_template %}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-horizontal">
+              <h2>
+                <i class="{{ models.Disability.get_icon }}"></i>
+                {{ models.Disability.get_display_name }}
+              </h2>
+              <div>
+                {% include models.Disability.get_form_template %}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-horizontal">
+              <h2>
+                <i class="{{ models.MedicalIssues.get_icon }}"></i>
+                {{ models.MedicalIssues.get_display_name }}
+              </h2>
+              <div>
+                {% include models.MedicalIssues.get_form_template %}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-horizontal">
+              <h2>
+                <i class="{{ models.MentalHealthIssues.get_icon }}"></i>
+                {{ models.MentalHealthIssues.get_display_name }}
+              </h2>
+              <div>
+                {% include models.MentalHealthIssues.get_form_template %}
+              </div>
+            </div>
+          </div>
+          {% endblock pathway_body %}
+          <span class="text-center" ng-show="form.$submitted && form.$invalid">
+              <strong class="help-block">Please fix the above errors</strong>
+          </span>
           {% block pathway_footer %}
           <div class="content-offset content-offset-below text-center">
               {% include "pathway/partial/save_button.html" %}

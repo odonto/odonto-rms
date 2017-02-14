@@ -1,10 +1,10 @@
 {% load forms %}
 
 <div style="width: 47%; float: left;">
-  {% input field="Demographics.first_name" %}
+  {% input field="Demographics.first_name" required=True %}
 </div>
 <div style="float: left; width: 47%; margin-left: 6%">
-  {% input field="Demographics.surname" %}
+  {% input field="Demographics.surname" required=True %}
 </div>
 {% input field="Demographics.nhs_number" label="NHS Number" %}
 <div style="width: 47%; float: left;">
