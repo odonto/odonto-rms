@@ -1,7 +1,7 @@
 /* Odonto wireframe stylings */
 body {
     background-color: white;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 h2 {
@@ -24,16 +24,18 @@ h2 {
 }
 
 #side-nav.can-refer{
-  background-color: #5E52C4;
+    background-color: #5E52C4;
+    background-color: #487DBC;
 }
 
-
 #side-nav.can-assign{
-  background-color: #281A9A;
+    background-color: #281A9A;
+    background-color: #3EBC99;
 }
 
 #side-nav.can-confirm{
-  background-color: #124c91;
+    background-color: #124c91;
+    background-color: #5E52C4;
 }
 
 .grey{
@@ -57,17 +59,19 @@ h2 {
 
 .top-navbar.can-refer{
   background-color: #5E52C4;
+  background-color: #487DBC;
 }
 
 
 .top-navbar.can-assign{
-  background-color: #281A9A;
+    background-color: #281A9A;
+    background-color: #3EBC99;
 }
 
 .top-navbar.can-confirm{
   background-color: #124c91;
+  background-color: #5E52C4;
 }
-
 
 .navbar-default .navbar-nav > li > a {
     color: white;
@@ -222,6 +226,12 @@ td div.urgent {
 
 }
 
+#side-nav.can-assign ul li.active,
+#side-nav.can-assign ul li.active a{
+    background-color: #124c91;
+    background-color: #06916B;
+}
+
 .outer-container {
   overflow-y: scroll;
   height: 100vh;
@@ -308,31 +318,37 @@ td div.urgent {
 
 .btn.can-refer{
   background-color: #5E52C4;
+  background-color: #487DBC;
   color: white;
 }
 
 .btn.can-refer.btn-active{
   background-color: white;
   color: #5E52C4;
+  color: #487DBC;
 }
 
 
 .btn.can-assign{
   background-color: #281A9A;
+  background-color: #3EBC99;
   color: white;
 }
 
 .btn.can-assign.btn-active{
   background-color: white;
   color: #281A9A;
+  color: #3EBC99;
 }
 
 .btn.can-confirm{
   background-color: #124c91;
+  background-color: #5E52C4;
   color: white;
 }
 
 .btn.can-confirm.btn-active{
   background-color: white;
   color: #124c91;
+  color: #5E52C4;
 }
