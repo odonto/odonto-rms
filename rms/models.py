@@ -265,7 +265,7 @@ class Xray(models.EpisodeSubrecord):
     notes = fields.TextField(null=True, blank=True)
 
     def update_from_dict(self, data, user, **kwargs):
-        data.pop("img")
+        data.pop("img", None)
         return super(Xray, self).update_from_dict(
             data, user, **kwargs
         )
