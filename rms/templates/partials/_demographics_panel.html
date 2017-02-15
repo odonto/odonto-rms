@@ -40,6 +40,15 @@
         [[ patient.demographics[0].sex ]]
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-12">
+        <b>Address</b><br />
+        <span ng-repeat="item in patient.contact_details[0].address.split('\n')">
+          [[ item ]]<br />
+        </span>
+        [[ patient.contact_details[0].post_code ]]
+      </div>
+    </div>
   </div>
   {% block footer %}{% endblock %}
 </div>
