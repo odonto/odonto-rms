@@ -52,6 +52,7 @@
             ng-click="jumpToEpisodeDetail(row)"
             scroll-container=".patient-list-container"
             class="pointer"
+            ng-class="{'urgent': row.referral_reason[0].urgency == 'Urgent'}"
             >
   	  {% for column in columns %}
   	    <td {% ifequal column.title "Teams" %}class="screen-only"{% endifequal %} >

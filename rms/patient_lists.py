@@ -71,7 +71,7 @@ class ApprovalList(core.patient_lists.PatientList):
         return Episode.objects.filter(
             allocatedclinic__confirmed=False,
             allocatedclinic__letter_sent=False,
-        )
+        ).order_by("referralreason__urgency")
 
     @transaction.atomic
     def save(self, data, user):
