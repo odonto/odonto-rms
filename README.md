@@ -18,7 +18,7 @@ To get started, run the following commands:
 
 One color scheme: http://paletton.com/#uid=13C0u0klwCFblS4gZKppQwtuErR
 
-for display purposes, odonto comes with 3 basic personas.
+The demo application comes with 3 basic personas.
 
 Linda (username: linda, password: linda1)
 is the professional who makes a referral
