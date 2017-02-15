@@ -233,6 +233,9 @@ class ReferralDetails(models.EpisodeSubrecord):
     when = fields.DateTimeField(blank=True, null=True)
     who = fields.ForeignKey(User, blank=True, null=True)
 
+    def __unicode__(self):
+        return u'Referral ({0})'.format(self.who.username)
+
     def to_dict(self, user):
         d = super(ReferralDetails, self).to_dict(user)
 
