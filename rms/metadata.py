@@ -8,5 +8,5 @@ class AllocatedClinicMetadata(Metadata):
     @classmethod
     def to_dict(klass, **kw):
         return {
-            ClinicLocation.get_api_name(): ClinicLocation.objects.values()
+            ClinicLocation.get_api_name(): list(ClinicLocation.objects.values())
         }
