@@ -3,8 +3,7 @@ Pathways for the Odonto RMS
 """
 import datetime
 
-
-from pathway.pathways import PagePathway, Step
+from opal.core.pathways import PagePathway, Step
 from rms import models
 from opal import models as omodels
 
