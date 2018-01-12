@@ -27,4 +27,4 @@ Mary (username: mary, password: mary1)
 is the professional who triages that referral
 
 Matt (username: matt, password: matt1)
-is the professional who overseas Mary's response
+is the professional who oversees Mary's response
