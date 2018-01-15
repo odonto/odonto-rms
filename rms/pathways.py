@@ -17,7 +17,8 @@ class ReferralPathway(PagePathway):
         Step(
             display_name='Patient Details',
             template="pathways/steps/patient_detail.html",
-            base_template="pathways/step_wrappers/odonto_page_wrapper.html"
+            base_template="pathways/step_wrappers/odonto_page_wrapper.html",
+            multiple=False
         ),
         Step(
             model=models.CarerDetails,
