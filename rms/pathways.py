@@ -15,31 +15,31 @@ class ReferralPathway(PagePathway):
 
     steps = (
         Step(
-            display_name = 'Patient Details',
-            template = "pathways/steps/patient_detail.html",
-            base_template = "pathways/step_wrappers/odonto_page_wrapper.html"
+            display_name='Patient Details',
+            template="pathways/steps/patient_detail.html",
+            base_template="pathways/step_wrappers/odonto_page_wrapper.html"
         ),
         Step(
-            model = models.CarerDetails,
-            base_template = "pathways/step_wrappers/odonto_page_wrapper.html"),
+            model=models.CarerDetails,
+            base_template="pathways/step_wrappers/odonto_page_wrapper.html"),
         Step(
-            model = models.GPDetails,
-            base_template = "pathways/step_wrappers/odonto_page_wrapper.html"),
+            model=models.GPDetails,
+            base_template="pathways/step_wrappers/odonto_page_wrapper.html"),
         Step(
-            model = models.ReferralReason,
-            base_template = "pathways/step_wrappers/odonto_page_wrapper.html"),
+            model=models.ReferralReason,
+            base_template="pathways/step_wrappers/odonto_page_wrapper.html"),
         Step(
-            model = models.Xray,
-            base_template = "pathways/step_wrappers/odonto_page_wrapper.html"),
+            model=models.Xray,
+            base_template="pathways/step_wrappers/odonto_page_wrapper.html"),
         Step(
-            model = models.Disability,
-            base_template = "pathways/step_wrappers/odonto_page_wrapper.html"),
+            model=models.Disability,
+            base_template="pathways/step_wrappers/odonto_page_wrapper.html"),
         Step(
-            model = models.MedicalIssues,
-            base_template = "pathways/step_wrappers/odonto_page_wrapper.html"),
+            model=models.MedicalIssues,
+            base_template="pathways/step_wrappers/odonto_page_wrapper.html"),
         Step(
-            model = models.MentalHealthIssues,
-            base_template = "pathways/step_wrappers/odonto_page_wrapper.html"),
+            model=models.MentalHealthIssues,
+            base_template="pathways/step_wrappers/odonto_page_wrapper.html"),
     )
 
     def save(self, data, user, *args, **kwargs):
