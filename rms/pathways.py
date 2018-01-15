@@ -3,7 +3,7 @@ Pathways for the Odonto RMS
 """
 import datetime
 
-from opal.core.pathways import PagePathway, Step
+from opal.core.pathway import PagePathway, Step
 from rms import models
 from opal import models as omodels
 
@@ -11,21 +11,21 @@ from opal import models as omodels
 class ReferralPathway(PagePathway):
     display_name = "Referral"
     slug = "referral_form"
-    step_wrapper_template_url = "/templates/pathways/step_wrappers/odonto_page_wrapper.html"
-    template_url = "/templates/pathways/odonto_pathway_base.html"
+    step_wrapper_template_url = "pathways/step_wrappers/odonto_page_wrapper.html"
+    template = "pathways/odonto_pathway_base.html"
 
     steps = (
         Step(
             display_name='Patient Details',
-            template_url="/templates/pathways/steps/patient_detail.html"
+            template="pathways/steps/patient_detail.html"
         ),
-        models.CarerDetails,
-        models.GPDetails,
-        models.ReferralReason,
-        models.Xray,
-        models.Disability,
-        models.MedicalIssues,
-        models.MentalHealthIssues,
+        Step(model=models.CarerDetails),
+        Step(model=models.GPDetails),
+        Step(model=models.ReferralReason),
+        Step(model=models.Xray),
+        Step(model=models.Disability),
+        Step(model=models.MedicalIssues),
+        Step(model=models.MentalHealthIssues),
     )
 
     def save(self, data, user):
