@@ -11,21 +11,35 @@ from opal import models as omodels
 class ReferralPathway(PagePathway):
     display_name = "Referral"
     slug = "referral_form"
-    step_wrapper_template_url = "pathways/step_wrappers/odonto_page_wrapper.html"
     template = "pathways/odonto_pathway_base.html"
 
     steps = (
         Step(
-            display_name='Patient Details',
-            template="pathways/steps/patient_detail.html"
+            display_name = 'Patient Details',
+            template = "pathways/steps/patient_detail.html",
+            base_template = "pathways/step_wrappers/odonto_page_wrapper.html"
         ),
-        Step(model=models.CarerDetails),
-        Step(model=models.GPDetails),
-        Step(model=models.ReferralReason),
-        Step(model=models.Xray),
-        Step(model=models.Disability),
-        Step(model=models.MedicalIssues),
-        Step(model=models.MentalHealthIssues),
+        Step(
+            model = models.CarerDetails,
+            base_template = "pathways/step_wrappers/odonto_page_wrapper.html"),
+        Step(
+            model = models.GPDetails,
+            base_template = "pathways/step_wrappers/odonto_page_wrapper.html"),
+        Step(
+            model = models.ReferralReason,
+            base_template = "pathways/step_wrappers/odonto_page_wrapper.html"),
+        Step(
+            model = models.Xray,
+            base_template = "pathways/step_wrappers/odonto_page_wrapper.html"),
+        Step(
+            model = models.Disability,
+            base_template = "pathways/step_wrappers/odonto_page_wrapper.html"),
+        Step(
+            model = models.MedicalIssues,
+            base_template = "pathways/step_wrappers/odonto_page_wrapper.html"),
+        Step(
+            model = models.MentalHealthIssues,
+            base_template = "pathways/step_wrappers/odonto_page_wrapper.html"),
     )
 
     def save(self, data, user):

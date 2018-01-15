@@ -1,4 +1,13 @@
-<div class="row">
-    <h2>[[ step.display_name ]]</h2>
-    <div class="step-template"></div>
+<div pathway-step="{{ step.get_api_name }}" class="row">
+  Hello
+  {{step}}
+    <h3>
+      <span ng-show="step.icon">
+      <i class="[[ step.icon ]]"></i>
+      </span>
+      [[ step.display_name ]]
+    </h3>
+    <div class="step-template">
+      {% include step.get_template %}
+    </div>
 </div>
