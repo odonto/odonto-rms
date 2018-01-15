@@ -42,21 +42,16 @@ class ReferralPathway(PagePathway):
             base_template = "pathways/step_wrappers/odonto_page_wrapper.html"),
     )
 
-    def save(self, data, user):
+    def save(self, data, user, *args, **kwargs):
         data[models.Demographics.get_api_name()][0]["hospital_number"] = omodels.Patient.objects.count()
-        patient = super(ReferralPathway, self).save(data, user)
-        episode = patient.episode_set.last()
+        patient, episode = super(ReferralPathway, self).save(data, user, *args, **kwargs)
         episode.active = True
         episode.save()
         referral = episode.referraldetails_set.first()
         referral.when = datetime.date.today()
         referral.who = user
         referral.save()
-        return patient
-
-    def redirect_url(self, patient):
-        episode = patient.episode_set.last()
-        return '/#/patient/{0}/{1}'.format(patient.id, episode.id)
+        return patient, episode
 
 
 class CheckAndFind(PagePathway):
