@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView, RedirectView
 from django.contrib.auth.models import User
 from django.contrib.auth import logout, login, authenticate
-from opal.core.views import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from opal.core.subrecords import get_subrecord_from_api_name
 
 
