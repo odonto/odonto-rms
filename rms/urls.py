@@ -10,11 +10,11 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(
         r'^imgs/(?P<model>[a-z_\-]+)/(?P<pk>[0-9]+/?)/?$',
-        views.ImgTemplateView.as_view()
+        views.ImgTemplateView.as_view(),
     ),
     url(
         r'^change_user/(?P<user>[a-z_\-]+)/?$',
-        views.ChangeUser.as_view(), name="change_user"
+        views.ChangeUser.as_view(), name="change_user",
     ),
 ]
 
