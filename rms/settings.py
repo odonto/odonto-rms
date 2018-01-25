@@ -151,6 +151,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework.authtoken',
     'compressor',
+    'odontotheme',
     'opal',
     'opal.core.search',
     'opal.core.pathway',
