@@ -15,9 +15,6 @@ class Application(application.OpalApplication):
         # Uncomment this if you want to implement custom dynamic flows.
         # 'js/rms/flow.js',
     ]
-    styles = [
-        "css/odonto.css"
-    ]
     default_episode_category = 'Referral'
 
     menuitems = [
