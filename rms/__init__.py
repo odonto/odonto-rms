@@ -2,12 +2,12 @@
 rms - Our OPAL Application
 """
 import copy
-
+from opal.core import menus
 from opal.core import application
 
 
 class Application(application.OpalApplication):
-    javascripts   = [
+    javascripts = [
         'js/rms/routes.js',
         'js/rms/controllers/directives.js',
         'js/rms/controllers/allocated_clinic_location_helper.js',
@@ -23,8 +23,11 @@ class Application(application.OpalApplication):
     menuitems = [
         # dict(href="/#/overview", display="Region Overview",
         #      icon="fa fa-dashboard", activepattern="overview"),
-        dict(href="/#/myclinic", display="Morpeth Clinic",
-             icon="fa fa-dashboard", activepattern="myclinic"),
+        menus.MenuItem(
+            href="/#/myclinic",
+            display="Morpeth Clinic",
+            icon="fa fa-dashboard",
+            activepattern="myclinic"),
     ]
 
     @classmethod
@@ -33,14 +36,14 @@ class Application(application.OpalApplication):
 
         if user.is_superuser or user.has_perm('rms.can_refer'):
             menu_items.append(
-                dict(
+                menus.MenuItem(
                     href="/pathway/#/referral_form/",
                     display="Make a referral",
                     icon="fa fa-plus",
                     activepattern="pathway/#/referral_form/"),
             )
             menu_items.append(
-                dict(
+                menus.MenuItem(
                     href="/#/list/my_referrals",
                     display="My Referrals",
                     icon="fa fa-user",
@@ -51,7 +54,7 @@ class Application(application.OpalApplication):
 
         if user.is_superuser or user.has_perm('rms.can_assign_location'):
             menu_items.append(
-                dict(
+                menus.MenuItem(
                     href="/#/list/new_referrals",
                     display="Triage Inbox",
                     icon="fa fa-inbox",
@@ -61,7 +64,7 @@ class Application(application.OpalApplication):
 
         if user.is_superuser or user.has_perm('rms.can_confirm_location'):
             menu_items.append(
-                dict(
+                menus.MenuItem(
                     href="/#/list/approval_inbox",
                     display="Approval Inbox",
                     icon="fa fa-inbox",

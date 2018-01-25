@@ -1,5 +1,3 @@
-var directives = angular.module('opal.directives', []);
-
 directives.directive('lineChart', function($http){
     return function(scope, element, attrs){
         var el = element

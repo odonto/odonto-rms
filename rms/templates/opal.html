@@ -1,170 +1,59 @@
-{% load staticfiles %}
-{% load compress %}
+{% extends 'app_layouts/layout_base.html' %}
+{% load menus %}
 
-{% load application %}
-{% load plugins %}
+{% block navbar %}{% include 'navbar.html' %}{% endblock %}
 
+{% block content %}
+<div class="row">
+  <div class="col-md-2
+  {% if perms.rms.can_refer %}can-refer {% endif %}
+  {% if perms.rms.can_assign_location %}can-assign {% endif %}
+  {% if perms.rms.can_confirm_location %}can-confirm {% endif %}
+  " id="side-nav">
+  <ul class="app-info">
+    <li>
+      <i class="fa fa-user green"></i>&nbsp;
+      {{ user.username }}
+    </li>
+  </ul>
+  {% menu %}
+</div>
+<div class="col-md-10">
+  <div class="outer-container" ng-view autoscroll="true" ng-hide="ready==false"></div>
+  {% include 'logout_modal.html' %}
+  <div growl></div>
+</div>
+</div>
 
-<!doctype html>
-{% block angulardefinition %}
-<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="{% block ngapp %}opal{% endblock %}" ng-controller="RootCtrl" ng-keydown="keydown($event)">
-{% endblock %}
-  <head>
+<script>
+// temporary for try outs
+jQuery(function($){
 
-	<!--[if lte IE 8]>
-		<script type="text/javascript" src="{% static "js/lib/utils/json3.min.js" %}"></script>
-		<![endif]-->
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
-	<title>{{brand_name}}</title>
+  // Touch Device Detection
+  var isTouchDevice = 'ontouchstart' in document.documentElement;
+  if( isTouchDevice ) {
+    $('body').addClass('touch');
+  }
 
-    {% compress js %}
-    {% core_javascripts 'opal.upstream.deps' %}
-    {% plugin_javascripts 'opal.upstream.deps' %}
-    {% plugin_opal_angular_deps %}
-    {% plugin_opal_angular_tracking_exclude %}
+});
+</script>
 
-    <script type="text/javascript">
-      var initials = "{{request.user.first_name|slice:":1"}} {{request.user.last_name}}"
-      var settings = {
-      LOG_OUT_DURATION: {{OPAL_LOG_OUT_DURATION}}
-      }
-      {% if GLOSSOLALIA_URL %}
-      settings.GLOSSOLALIA_URL = '{{ GLOSSOLALIA_URL }}';
-      settings.BROADCAST_ENDPONT = settings.GLOSSOLALIA_URL.replace('http', 'ws') + 'ws';
-      {% endif %}
-      var version = '{{VERSION_NUMBER}}';
-      {% if OPAL_FLOW_SERVICE %}
-      var OPAL_FLOW_SERVICE = '{{ OPAL_FLOW_SERVICE }}';
-      {% endif %}
-    </script>
-    <!-- google analytics -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      {% if OPAL_ANALYTICS_NODOMAIN %}
-      ga('create', '{{ OPAL_ANALYTICS_ID }}', {
-      'cookieDomain': 'none'
-      });
-      {% else %}
-      ga('create', '{{ OPAL_ANALYTICS_ID }}', 'auto');
-      {% endif %}
-    </script>
-
-
-
-    {% core_javascripts 'opal.utils' %}
-
-    {% core_javascripts 'opal.services' %}
-    {% plugin_javascripts 'opal.services' %}
-    {% core_javascripts 'opal.controllers' %}
-    {% plugin_javascripts 'opal.controllers' %}
-
-    {% block angularapp %}
-	<script type="text/javascript" src="{% static "js/opal/app.js" %}"></script>
-	<script type="text/javascript" src="{% static "js/opal/routes.js" %}"></script>
-    {% endblock %}
-
-    {% application_javascripts %}
-    <script type="text/javascript" src="{% static "js/opal/timer.js" %}"></script>
-    {% endcompress %}
-
-    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
-    <link href="{% static "js/lib/c3-0.4.10/c3.css" %}" rel="stylesheet" media="all">
-	<link href="{% static "bootstrap-3.1.0/css/bootstrap.css" %}" rel="stylesheet" media="all">
-	<link href="{% static "css/select.css" %}" rel="stylesheet" media="all">
-	<link href="{% static "css/bootstrap-datepicker.css" %}" rel="stylesheet" media="all">
-	<link href="{% static "css/font-awesome/css/font-awesome.css" %}" rel="stylesheet" media="all">
-	<link href="{% static "css/awesome-bootstrap-checkbox.css" %}" rel="stylesheet" media="all">
-    <link href="{% static "css/ngprogress-lite.css" %}" rel="stylesheet" media="screen">
-	<link href="{% static "js/lib/bower_components/angular-growl-v2/build/angular-growl.css" %}" rel="stylesheet" media="screen">
-
-    {% compress css %}
-
-	<link href="{% static "css/opal.css" %}" rel="stylesheet" media="all">
-    {% endcompress %}
-    <link href="{% static "css/print.css" %}" rel="stylesheet" media="print">
-    <link href="{% static "css/screen.css" %}" rel="stylesheet" media="screen">
-
-    {% plugin_stylesheets %}
-    {% application_stylesheets %}
-
-    <link rel="shortcut icon" href="{% static 'img/odonto-icon.png' %}">
-
-    <script id="templates/growl/growl.html" type="text/ng-template">
-      <div class="growl-container" ng-class="wrapperClasses()">
-        <div class="growl-item alert" ng-repeat="message in growlMessages.directives[referenceId].messages" ng-class="alertClasses(message)" ng-click="stopTimeoutClose(message)">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="growlMessages.deleteMessage(message)" ng-show="!message.disableCloseButton">&times;</button>
-          <h4 class="growl-title" ng-show="message.title" ng-bind="message.title"></h4>
-          <div class="growl-message" ng-bind-html="message.text"></div>
-        </div>
+<div class="switch-user-bar">
+  <div class="switch-user-bg">
+  </div>
+  <div class="row switch-user-container">
+    <div class="col-md-10 col-md-push-1">
+      <div class="col-md-4 text-center">
+        <a class="btn btn-lg can-refer btn-{% if user.username == 'linda' %}active{% else %}primary{% endif %}" href="{% url 'change_user' user='linda' %}">Linda</a>
       </div>
-    </script>
-
-    {% plugin_head_extra %}
-
-  </head>
-  <body>
-    {% if OPAL_EXTRA_HEADER %}{% include OPAL_EXTRA_HEADER %}{% endif %}
-    {% block navbar %}{% include 'navbar.html' %}{% endblock %}
-    <div class="row">
-      <div class="col-md-2
-        {% if perms.rms.can_refer %}can-refer {% endif %}
-        {% if perms.rms.can_assign_location %}can-assign {% endif %}
-        {% if perms.rms.can_confirm_location %}can-confirm {% endif %}
-      " id="side-nav">
-        <ul class="app-info">
-          <li>
-            <i class="fa fa-user green"></i>&nbsp;
-            {{ user.username }}
-          </li>
-        </ul>
-        <ul class="nav nav-pills nav-stacked" >
-          {% application_menuitems %}
-        </ul>
+      <div class="col-md-4 text-center">
+        <a class="btn btn-lg can-assign btn-{% if user.username == 'mary' %}active{% else %}primary{% endif %}" href="{% url 'change_user' user='mary' %}">Mary</a>
       </div>
-      <div class="col-md-10">
-    {% block content %}
-	<div class="outer-container" ng-view autoscroll="true" ng-hide="ready==false"></div>
-    {% endblock %}
-    {% include 'logout_modal.html' %}
-    <div growl></div>
-
+      <div class="col-md-4 text-center">
+        <a class="btn btn-lg can-confirm btn-{% if user.username == 'matt' %}active{% else %}primary{% endif %}" href="{% url 'change_user' user='matt' %}">Matt</a>
+      </div>
     </div>
-      </div>
-    <script>
-        // temporary for try outs
-        jQuery(function($){
+  </div>
+</div>
 
-        	// Touch Device Detection
-        	var isTouchDevice = 'ontouchstart' in document.documentElement;
-        	if( isTouchDevice ) {
-        		$('body').addClass('touch');
-        	}
-
-        });
-    </script>
-    <div class="switch-user-bar">
-      <div class="switch-user-bg">
-      </div>
-      <div class="row switch-user-container">
-        <div class="col-md-10 col-md-push-1">
-          <div class="col-md-4 text-center">
-            <a class="btn btn-lg can-refer btn-{% if user.username == 'linda' %}active{% else %}primary{% endif %}" href="{% url 'change_user' user='linda' %}">Linda</a>
-          </div>
-          <div class="col-md-4 text-center">
-            <a class="btn btn-lg can-assign btn-{% if user.username == 'mary' %}active{% else %}primary{% endif %}" href="{% url 'change_user' user='mary' %}">Mary</a>
-          </div>
-          <div class="col-md-4 text-center">
-            <a class="btn btn-lg can-confirm btn-{% if user.username == 'matt' %}active{% else %}primary{% endif %}" href="{% url 'change_user' user='matt' %}">Matt</a>
-          </div>
-        </div>
-      </div>
-    <div>
-  </body>
-
-</html>
+{% endblock %}
