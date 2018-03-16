@@ -28,3 +28,5 @@ is the professional who triages that referral
 
 Matt (username: matt, password: matt1)
 is the professional who oversees Mary's response
+
+![supported_by_apperta_lores.png](https://github.com/AppertaFoundation/apperta-image-assets/blob/master/supported_by_apperta_lores.png)
